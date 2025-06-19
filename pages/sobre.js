@@ -1,3 +1,4 @@
+import Analytics from '../components/Analytics';
 
 import Head from 'next/head';
 
@@ -5,6 +6,7 @@ export default function Sobre() {
   return (
     <>
       <Head>
+        <Analytics />
         <title>Quem Somos – Lili Cabral</title>
         <meta name="description" content="Conheça a história da marca Lili Cabral, criada em Manhuaçu-MG para valorizar o conforto e a autoestima feminina." />
       </Head>
