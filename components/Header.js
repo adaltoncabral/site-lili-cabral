@@ -23,6 +23,7 @@ export default function Header() {
         <Link href="/catalogo">Catálogo</Link>
         <Link href="/sobre">Sobre</Link>
         <Link href="/contato">Contato</Link>
+        <Link href="/blog">Blog</Link>
         <a href="https://wa.me/5533984142006?text=Olá!%20Acessei%20o%20site%20da%20Lili%20Cabral%20e%20gostaria%20de%20falar%20com%20você!" target="_blank" rel="noopener noreferrer">
           Fale Conosco
         </a>
