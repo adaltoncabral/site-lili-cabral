@@ -1,42 +1,67 @@
+
 export default function Home() {
   return (
-    <>
-      <main>
-        <h1 style={{ color: '#d693a8', textAlign: 'center', paddingTop: '50px' }}>
-          Bem-vinda à Lili Cabral – Pijamas e Lingeries
-        </h1>
-        <p style={{ textAlign: 'center', maxWidth: '600px', margin: '20px auto' }}>
-          Nosso novo site está em construção. Em breve, você poderá conhecer nossas coleções
-          e falar diretamente conosco pelo WhatsApp e Instagram.
-        </p>
-      </main>
+    <main style={{ fontFamily: 'sans-serif', backgroundColor: '#fff', color: '#191919', padding: '20px', textAlign: 'center' }}>
+      <h1 style={{ color: '#d693a8', marginTop: '80px' }}>
+        Bem-vinda Ã  Lili Cabral â€“ Pijamas e Lingeries
+      </h1>
+      <p style={{ marginTop: '10px' }}>
+        Nosso novo site estÃ¡ em construÃ§Ã£o. Em breve, vocÃª poderÃ¡ conhecer nossas coleÃ§Ãµes e falar diretamente conosco pelo WhatsApp e Instagram.
+      </p>
 
-      {/* Botão flutuante de WhatsApp */}
+      <div style={{ marginTop: '30px' }}>
+        <a
+          href="https://api.whatsapp.com/send?phone=5533984142006&text=Ol%C3%A1!%20Vim%20pelo%20site,%20quero%20saber%20mais%20sobre%20os%20produtos%20da%20Lili%20Cabral!"
+          target="_blank"
+          style={{
+            backgroundColor: '#25D366',
+            color: 'white',
+            padding: '12px 20px',
+            borderRadius: '5px',
+            textDecoration: 'none',
+            fontWeight: 'bold',
+            marginRight: '10px'
+          }}
+        >
+          Falar no WhatsApp
+        </a>
+
+        <a
+          href="https://instagram.com/lili.cabral_"
+          target="_blank"
+          style={{
+            backgroundColor: '#E1306C',
+            color: 'white',
+            padding: '12px 20px',
+            borderRadius: '5px',
+            textDecoration: 'none',
+            fontWeight: 'bold'
+          }}
+        >
+          Ver no Instagram
+        </a>
+      </div>
+
       <a
-        href="https://api.whatsapp.com/send?phone=5533984142006&text=Olá!%20Quero%20saber%20mais%20sobre%20os%20produtos%20da%20Lili%20Cabral"
+        href="https://api.whatsapp.com/send?phone=5533984142006&text=Ol%C3%A1!%20Vim%20pelo%20site,%20quero%20saber%20mais%20sobre%20os%20produtos%20da%20Lili%20Cabral!"
         target="_blank"
         style={{
           position: 'fixed',
           bottom: '20px',
           right: '20px',
-          backgroundColor: '#25d366',
+          backgroundColor: '#25D366',
           color: 'white',
           borderRadius: '50%',
-          padding: '15px',
-          fontSize: '24px',
-          zIndex: 1000,
-          boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
-          textDecoration: 'none',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
           width: '55px',
           height: '55px',
+          fontSize: '30px',
+          lineHeight: '55px',
+          textAlign: 'center',
+          textDecoration: 'none'
         }}
-        title="Fale conosco no WhatsApp"
       >
-        💬
+        ðŸ’¬
       </a>
-    </>
+    </main>
   );
 }
