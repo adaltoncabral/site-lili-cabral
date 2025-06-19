@@ -17,21 +17,22 @@ export default function Home() {
 
       <main style={{ marginTop: '80px', padding: '2rem', textAlign: 'center', fontFamily: 'sans-serif' }}>
         {/* HERO SECTION */}
-        <section style={{ padding: '3rem 1rem' }}>
-          <h1 style={{ color: '#d693a8', fontSize: '2.2rem', marginBottom: '1rem' }}>
+        <section style={{ padding: '4rem 1rem', minHeight: '90vh' }}>
+          <h1 style={{ color: '#d693a8', fontSize: '2.4rem', marginBottom: '1.5rem' }}>
             Conforto, delicadeza e autoestima para seu descanso
           </h1>
           <p style={{ maxWidth: '600px', margin: '0 auto', fontSize: '1rem', color: '#444' }}>
             Pijamas, lingeries e kits presenteáveis pensados para transformar sua rotina de descanso em um momento especial.
           </p>
-          <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ marginTop: '2.5rem', display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/catalogo" style={{
               backgroundColor: '#d693a8',
               color: '#fff',
-              padding: '12px 20px',
+              padding: '14px 24px',
               borderRadius: '8px',
               textDecoration: 'none',
-              fontWeight: 'bold'
+              fontWeight: 'bold',
+              fontSize: '1rem'
             }}>
               Ver Catálogo
             </Link>
@@ -41,10 +42,11 @@ export default function Home() {
               style={{
                 backgroundColor: '#25d366',
                 color: '#fff',
-                padding: '12px 20px',
+                padding: '14px 24px',
                 borderRadius: '8px',
                 textDecoration: 'none',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                fontSize: '1rem'
               }}
             >
               Falar no WhatsApp
@@ -53,7 +55,7 @@ export default function Home() {
         </section>
 
         {/* BLOCO INSTITUCIONAL */}
-        <section style={{ marginTop: '3rem', padding: '2rem 1rem', backgroundColor: '#fafafa', borderRadius: '12px' }}>
+        <section style={{ marginTop: '4rem', padding: '2rem 1rem', backgroundColor: '#fafafa', borderRadius: '12px' }}>
           <p style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1rem', color: '#555' }}>
             A <strong>Lili Cabral</strong> é mais do que uma loja virtual. É uma marca criada para mulheres reais que valorizam o conforto,
             a delicadeza e o autocuidado. Todas as nossas peças são escolhidas com carinho para oferecer aconchego e elevar a autoestima
@@ -62,8 +64,8 @@ export default function Home() {
         </section>
 
         {/* CHAMADA FINAL */}
-        <section style={{ marginTop: '3rem', padding: '2rem 1rem' }}>
-          <h2 style={{ color: '#d693a8', marginBottom: '1rem' }}>
+        <section style={{ marginTop: '4rem', padding: '2rem 1rem' }}>
+          <h2 style={{ color: '#d693a8', marginBottom: '1.5rem' }}>
             Receba um atendimento acolhedor e personalizado
           </h2>
           <a href="https://wa.me/5533984142006?text=Olá! Quero conhecer os produtos da Lili Cabral!"
@@ -84,6 +86,11 @@ export default function Home() {
         </section>
 
         <style jsx>{`
+          @media (max-width: 768px) {
+            .floating-buttons {
+              display: none;
+            }
+          }
           .floating-buttons {
             position: fixed;
             bottom: 20px;
