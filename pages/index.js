@@ -1,6 +1,4 @@
-# Criando um novo index.js com estrutura de página principal aprimorada
 
-index_melhorado = """
 import Head from 'next/head';
 import Header from '../components/Header';
 import Analytics from '../components/Analytics';
@@ -10,8 +8,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Lili Cabral – Pijamas e Lingeries com Conforto e Delicadeza</title>
-        <meta name="description" content="Descubra a Lili Cabral – sua loja de pijamas e lingeries que valorizam o bem-estar e a autoestima com aconchego e charme." />
+        <title>Lili Cabral â€“ Pijamas e Lingeries com Conforto e Delicadeza</title>
+        <meta name="description" content="Descubra a Lili Cabral â€“ sua loja de pijamas e lingeries que valorizam o bem-estar e a autoestima com aconchego e charme." />
       </Head>
 
       <Analytics />
@@ -24,7 +22,7 @@ export default function Home() {
             Conforto, delicadeza e autoestima para seu descanso
           </h1>
           <p style={{ maxWidth: '600px', margin: '0 auto', fontSize: '1rem', color: '#444' }}>
-            Pijamas, lingeries e kits presenteáveis pensados para transformar sua rotina de descanso em um momento especial.
+            Pijamas, lingeries e kits presenteÃ¡veis pensados para transformar sua rotina de descanso em um momento especial.
           </p>
           <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/catalogo" style={{
@@ -35,9 +33,9 @@ export default function Home() {
               textDecoration: 'none',
               fontWeight: 'bold'
             }}>
-              Ver Catálogo
+              Ver CatÃ¡logo
             </Link>
-            <a href="https://wa.me/5533984142006?text=Olá!%20Quero%20conhecer%20os%20produtos%20da%20Lili%20Cabral!"
+            <a href="https://wa.me/5533984142006?text=OlÃ¡!%20Quero%20conhecer%20os%20produtos%20da%20Lili%20Cabral!"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -57,8 +55,8 @@ export default function Home() {
         {/* BLOCO INSTITUCIONAL */}
         <section style={{ marginTop: '3rem', padding: '2rem 1rem', backgroundColor: '#fafafa', borderRadius: '12px' }}>
           <p style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1rem', color: '#555' }}>
-            A <strong>Lili Cabral</strong> é mais do que uma loja virtual. É uma marca criada para mulheres reais que valorizam o conforto,
-            a delicadeza e o autocuidado. Todas as nossas peças são escolhidas com carinho para oferecer aconchego e elevar a autoestima
+            A <strong>Lili Cabral</strong> Ã© mais do que uma loja virtual. Ã‰ uma marca criada para mulheres reais que valorizam o conforto,
+            a delicadeza e o autocuidado. Todas as nossas peÃ§as sÃ£o escolhidas com carinho para oferecer aconchego e elevar a autoestima
             de quem veste.
           </p>
         </section>
@@ -68,7 +66,7 @@ export default function Home() {
           <h2 style={{ color: '#d693a8', marginBottom: '1rem' }}>
             Receba um atendimento acolhedor e personalizado
           </h2>
-          <a href="https://wa.me/5533984142006?text=Olá!%20Quero%20conhecer%20os%20produtos%20da%20Lili%20Cabral!"
+          <a href="https://wa.me/5533984142006?text=OlÃ¡!%20Quero%20conhecer%20os%20produtos%20da%20Lili%20Cabral!"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -114,18 +112,10 @@ export default function Home() {
         `}</style>
 
         <div className="floating-buttons">
-          <a href="https://wa.me/5533984142006?text=Olá! Vim pelo site, quero saber mais sobre os produtos da Lili Cabral!" target="_blank" rel="noopener noreferrer">📱 WhatsApp</a>
-          <a href="https://instagram.com/lili.cabral_" target="_blank" rel="noopener noreferrer" className="instagram">📸 Instagram</a>
+          <a href="https://wa.me/5533984142006?text=OlÃ¡! Vim pelo site, quero saber mais sobre os produtos da Lili Cabral!" target="_blank" rel="noopener noreferrer">ðŸ“± WhatsApp</a>
+          <a href="https://instagram.com/lili.cabral_" target="_blank" rel="noopener noreferrer" className="instagram">ðŸ“¸ Instagram</a>
         </div>
       </main>
     </>
   );
 }
-"""
-
-# Salvando como index.js
-index_path = "/mnt/data/index.js"
-with open(index_path, "w", encoding="utf-8") as f:
-    f.write(index_melhorado)
-
-index_path
