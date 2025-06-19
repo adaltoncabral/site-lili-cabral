@@ -1,3 +1,4 @@
+import Analytics from '../components/Analytics';
 
 import Head from 'next/head';
 
