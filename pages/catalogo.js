@@ -30,6 +30,7 @@ export default function Catalogo() {
   return (
     <>
       <Head>
+        <Analytics />
         <title>Catálogo de Produtos – Lili Cabral</title>
         <meta name="description" content="Conheça nossas peças exclusivas: pijamas femininos, conjuntos de lingerie e kits presenteáveis para mulheres e casais." />
       </Head>
