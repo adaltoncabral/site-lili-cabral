@@ -13,7 +13,7 @@ export default function Home() {
 
       {/* Botão flutuante de WhatsApp */}
       <a
-        href="https://api.whatsapp.com/send?phone=5533984242006&text=Olá!%20Quero%20saber%20mais%20sobre%20os%20produtos%20da%20Lili%20Cabral"
+        href="https://api.whatsapp.com/send?phone=5533984142006&text=Olá!%20Quero%20saber%20mais%20sobre%20os%20produtos%20da%20Lili%20Cabral"
         target="_blank"
         style={{
           position: 'fixed',
