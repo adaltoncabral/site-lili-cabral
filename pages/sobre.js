@@ -5,15 +5,17 @@ import Head from 'next/head';
 export default function Sobre() {
   return (
     <>
-      <Header />
       <Head>
-      <Analytics />
         <title>Quem Somos – Lili Cabral</title>
         <meta name="description" content="Conheça a história da marca Lili Cabral, criada em Manhuaçu-MG para valorizar o conforto e a autoestima feminina." />
       </Head>
+      
+      <Analytics />
+      <Header />
+
       <main style={{
         maxWidth: '800px',
-        margin: '0 auto',
+        margin: '80px auto 0',
         padding: '2rem',
         fontFamily: 'sans-serif',
         lineHeight: 1.6
@@ -70,8 +72,6 @@ export default function Sobre() {
           <a href="https://instagram.com/lili.cabral_" target="_blank" rel="noopener noreferrer" className="instagram">📸 Instagram</a>
         </div>
       </main>
-      <main style={{ marginTop: '80px' }}>
-
     </>
   );
 }
