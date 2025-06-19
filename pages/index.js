@@ -1,4 +1,4 @@
-
+import FloatingButton from '../components/FloatingButton';
 import Head from 'next/head';
 import Header from '../components/Header';
 import Analytics from '../components/Analytics';
@@ -14,6 +14,7 @@ export default function Home() {
 
       <Analytics />
       <Header />
+      <FloatingButton />
 
       <main style={{ marginTop: '80px', padding: '2rem', textAlign: 'center', fontFamily: 'sans-serif' }}>
         {/* HERO SECTION */}
