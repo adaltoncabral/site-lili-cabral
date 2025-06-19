@@ -24,7 +24,7 @@ export default function Sobre() {
           com peças pensadas para o descanso, o carinho e o amor.
         </p>
         <p style={{ marginBottom: '1.5rem' }}>
-          Criada por <strong>Liriane e Adalton Cabral</strong>, a Lili nasceu em Manhuaçu-MG e alcança todo o Brasil com uma proposta clara:
+          Criada por <strong>Liriane Cabral</strong>, a Lili Cabral nasceu em Manhuaçu-MG e alcança todo o Brasil com uma proposta clara:
           entregar delicadeza, qualidade e acolhimento em cada peça.
         </p>
         <p style={{ marginBottom: '1.5rem' }}>
