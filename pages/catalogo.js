@@ -1,3 +1,4 @@
+import FloatingButton from '../components/FloatingButton';
 import Header from '../components/Header';
 import Analytics from '../components/Analytics';
 import Head from 'next/head';
@@ -36,6 +37,7 @@ export default function Catalogo() {
 
       <Analytics />
       <Header />
+      <FloatingButton />
 
       <div style={{ padding: '2rem', marginTop: '80px' }}>
         <h1 style={{ textAlign: 'center', color: '#d693a8' }}>Catálogo Lili Cabral</h1>
