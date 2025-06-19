@@ -29,13 +29,15 @@ const produtos = [
 export default function Catalogo() {
   return (
     <>
-      <Header />
       <Head>
-      <Analytics />
         <title>Catálogo de Produtos – Lili Cabral</title>
         <meta name="description" content="Conheça nossas peças exclusivas: pijamas femininos, conjuntos de lingerie e kits presenteáveis para mulheres e casais." />
       </Head>
-      <div style={{ padding: '2rem' }}>
+
+      <Analytics />
+      <Header />
+
+      <div style={{ padding: '2rem', marginTop: '80px' }}>
         <h1 style={{ textAlign: 'center', color: '#d693a8' }}>Catálogo Lili Cabral</h1>
         <div style={{
           display: 'grid',
@@ -72,6 +74,7 @@ export default function Catalogo() {
             </div>
           ))}
         </div>
+
         <style jsx>{`
           .floating-buttons {
             position: fixed;
@@ -99,6 +102,7 @@ export default function Catalogo() {
             background-color: #E1306C;
           }
         `}</style>
+
         <div className="floating-buttons">
           <a href="https://wa.me/5533984142006?text=Olá!%20Vim%20pelo%20site,%20quero%20saber%20mais%20sobre%20os%20produtos%20da%20Lili%20Cabral!" target="_blank" rel="noopener noreferrer">📱 WhatsApp</a>
           <a href="https://instagram.com/lili.cabral_" target="_blank" rel="noopener noreferrer" className="instagram">📸 Instagram</a>
