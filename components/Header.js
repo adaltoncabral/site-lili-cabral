@@ -16,7 +16,9 @@ export default function Header() {
       zIndex: 1000
     }}>
       <div style={{ fontWeight: 'bold', color: '#d693a8', fontSize: '1.2rem' }}>
-        Lili Cabral
+        <Link href="/">
+  <img src="/logo-lili-cabral.png" alt="Lili Cabral" style={{ height: '48px' }} />
+</Link>
       </div>
       <nav style={{ display: 'flex', gap: '1.5rem', fontSize: '0.95rem' }}>
         <Link href="/">Início</Link>
