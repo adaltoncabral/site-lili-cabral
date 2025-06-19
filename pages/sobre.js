@@ -1,3 +1,4 @@
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Analytics from '../components/Analytics';
 import Head from 'next/head';
@@ -12,6 +13,7 @@ export default function Sobre() {
       
       <Analytics />
       <Header />
+      <Footer />
 
       <main style={{
         maxWidth: '800px',
