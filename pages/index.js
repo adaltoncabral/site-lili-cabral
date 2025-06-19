@@ -1,13 +1,13 @@
+import Header from '../components/Header';
 import Analytics from '../components/Analytics';
-
 import Head from 'next/head';
 
 export default function Home() {
   return (
     <>
+      <Header />
       <Head>
       <Analytics />
-
         <title>Lili Cabral – Pijamas e Lingeries com Conforto e Delicadeza</title>
         <meta name="description" content="Loja virtual especializada em pijamas, lingeries e kits presenteáveis. Enviamos para todo o Brasil. Compre com conforto e charme." />
       </Head>
@@ -79,6 +79,7 @@ export default function Home() {
           </a>
         </div>
       </main>
+      <main style={{ marginTop: '80px' }}>
     </>
   );
 }
