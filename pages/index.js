@@ -1,39 +1,89 @@
+# Criando um novo index.js com estrutura de página principal aprimorada
+
+index_melhorado = """
+import Head from 'next/head';
 import Header from '../components/Header';
 import Analytics from '../components/Analytics';
-import Head from 'next/head';
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <>
       <Head>
         <title>Lili Cabral – Pijamas e Lingeries com Conforto e Delicadeza</title>
-        <meta name="description" content="Loja virtual especializada em pijamas, lingeries e kits presenteáveis. Enviamos para todo o Brasil. Compre com conforto e charme." />
+        <meta name="description" content="Descubra a Lili Cabral – sua loja de pijamas e lingeries que valorizam o bem-estar e a autoestima com aconchego e charme." />
       </Head>
 
       <Analytics />
       <Header />
 
-      <main style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '100vh',
-        padding: '20px',
-        textAlign: 'center',
-        marginTop: '80px'
-      }}>
-        <h1 style={{
-          color: '#d693a8',
-          fontSize: '2rem',
-          marginBottom: '1rem'
-        }}>
-          Bem-vinda à Lili Cabral – Pijamas e Lingeries
-        </h1>
-        <p style={{ maxWidth: '600px' }}>
-          Nosso novo site está em construção. Em breve, você poderá conhecer nossas coleções
-          e falar diretamente conosco pelo WhatsApp e Instagram.
-        </p>
+      <main style={{ marginTop: '80px', padding: '2rem', textAlign: 'center', fontFamily: 'sans-serif' }}>
+        {/* HERO SECTION */}
+        <section style={{ padding: '3rem 1rem' }}>
+          <h1 style={{ color: '#d693a8', fontSize: '2.2rem', marginBottom: '1rem' }}>
+            Conforto, delicadeza e autoestima para seu descanso
+          </h1>
+          <p style={{ maxWidth: '600px', margin: '0 auto', fontSize: '1rem', color: '#444' }}>
+            Pijamas, lingeries e kits presenteáveis pensados para transformar sua rotina de descanso em um momento especial.
+          </p>
+          <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/catalogo" style={{
+              backgroundColor: '#d693a8',
+              color: '#fff',
+              padding: '12px 20px',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              fontWeight: 'bold'
+            }}>
+              Ver Catálogo
+            </Link>
+            <a href="https://wa.me/5533984142006?text=Olá!%20Quero%20conhecer%20os%20produtos%20da%20Lili%20Cabral!"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                backgroundColor: '#25d366',
+                color: '#fff',
+                padding: '12px 20px',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: 'bold'
+              }}
+            >
+              Falar no WhatsApp
+            </a>
+          </div>
+        </section>
+
+        {/* BLOCO INSTITUCIONAL */}
+        <section style={{ marginTop: '3rem', padding: '2rem 1rem', backgroundColor: '#fafafa', borderRadius: '12px' }}>
+          <p style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1rem', color: '#555' }}>
+            A <strong>Lili Cabral</strong> é mais do que uma loja virtual. É uma marca criada para mulheres reais que valorizam o conforto,
+            a delicadeza e o autocuidado. Todas as nossas peças são escolhidas com carinho para oferecer aconchego e elevar a autoestima
+            de quem veste.
+          </p>
+        </section>
+
+        {/* CHAMADA FINAL */}
+        <section style={{ marginTop: '3rem', padding: '2rem 1rem' }}>
+          <h2 style={{ color: '#d693a8', marginBottom: '1rem' }}>
+            Receba um atendimento acolhedor e personalizado
+          </h2>
+          <a href="https://wa.me/5533984142006?text=Olá!%20Quero%20conhecer%20os%20produtos%20da%20Lili%20Cabral!"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              backgroundColor: '#25d366',
+              color: '#fff',
+              padding: '14px 24px',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              fontSize: '1rem'
+            }}
+          >
+            Quero conhecer os produtos
+          </a>
+        </section>
 
         <style jsx>{`
           .floating-buttons {
@@ -64,23 +114,18 @@ export default function Home() {
         `}</style>
 
         <div className="floating-buttons">
-          <a
-            href="https://wa.me/5533984142006?text=Olá!%20Vim%20pelo%20site,%20quero%20saber%20mais%20sobre%20os%20produtos%20da%20Lili%20Cabral!"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            📱 WhatsApp
-          </a>
-          <a
-            href="https://instagram.com/lili.cabral_"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="instagram"
-          >
-            📸 Instagram
-          </a>
+          <a href="https://wa.me/5533984142006?text=Olá! Vim pelo site, quero saber mais sobre os produtos da Lili Cabral!" target="_blank" rel="noopener noreferrer">📱 WhatsApp</a>
+          <a href="https://instagram.com/lili.cabral_" target="_blank" rel="noopener noreferrer" className="instagram">📸 Instagram</a>
         </div>
       </main>
     </>
   );
 }
+"""
+
+# Salvando como index.js
+index_path = "/mnt/data/index.js"
+with open(index_path, "w", encoding="utf-8") as f:
+    f.write(index_melhorado)
+
+index_path
