@@ -1,5 +1,5 @@
 
-import Image from 'next/image';
+import Head from 'next/head';
 
 const produtos = [
   {
@@ -27,43 +27,49 @@ const produtos = [
 
 export default function Catalogo() {
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1 style={{ textAlign: 'center', color: '#d693a8' }}>Catálogo Lili Cabral</h1>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-        gap: '2rem',
-        marginTop: '2rem'
-      }}>
-        {produtos.map((produto, index) => (
-          <div key={index} style={{
-            border: '1px solid #eee',
-            borderRadius: '12px',
-            padding: '1rem',
-            textAlign: 'center',
-            boxShadow: '0 0 10px rgba(0,0,0,0.05)'
-          }}>
-            <img src={produto.imagem} alt={produto.nome} style={{ width: '100%', borderRadius: '8px' }} />
-            <h2 style={{ margin: '1rem 0 0.5rem', color: '#191919' }}>{produto.nome}</h2>
-            <p style={{ fontStyle: 'italic', color: '#8d7974' }}>{produto.frase}</p>
-            <a href={`https://wa.me/5533984142006?text=${encodeURIComponent(produto.mensagemZap)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-block',
-                marginTop: '1rem',
-                backgroundColor: '#25d366',
-                color: 'white',
-                padding: '10px 16px',
-                borderRadius: '8px',
-                textDecoration: 'none'
-              }}
-            >
-              Pedir no WhatsApp
-            </a>
-          </div>
-        ))}
+    <>
+      <Head>
+        <title>Catálogo de Produtos – Lili Cabral</title>
+        <meta name="description" content="Conheça nossas peças exclusivas: pijamas femininos, conjuntos de lingerie e kits presenteáveis para mulheres e casais." />
+      </Head>
+      <div style={{ padding: '2rem' }}>
+        <h1 style={{ textAlign: 'center', color: '#d693a8' }}>Catálogo Lili Cabral</h1>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '2rem',
+          marginTop: '2rem'
+        }}>
+          {produtos.map((produto, index) => (
+            <div key={index} style={{
+              border: '1px solid #eee',
+              borderRadius: '12px',
+              padding: '1rem',
+              textAlign: 'center',
+              boxShadow: '0 0 10px rgba(0,0,0,0.05)'
+            }}>
+              <img src={produto.imagem} alt={produto.nome} style={{ width: '100%', borderRadius: '8px' }} />
+              <h2 style={{ margin: '1rem 0 0.5rem', color: '#191919' }}>{produto.nome}</h2>
+              <p style={{ fontStyle: 'italic', color: '#8d7974' }}>{produto.frase}</p>
+              <a href={`https://wa.me/5533984142006?text=${encodeURIComponent(produto.mensagemZap)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-block',
+                  marginTop: '1rem',
+                  backgroundColor: '#25d366',
+                  color: 'white',
+                  padding: '10px 16px',
+                  borderRadius: '8px',
+                  textDecoration: 'none'
+                }}
+              >
+                Pedir no WhatsApp
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
