@@ -1,5 +1,5 @@
+import Header from '../components/Header';
 import Analytics from '../components/Analytics';
-
 import Head from 'next/head';
 
 const produtos = [
@@ -29,8 +29,9 @@ const produtos = [
 export default function Catalogo() {
   return (
     <>
+      <Header />
       <Head>
-        <Analytics />
+      <Analytics />
         <title>Catálogo de Produtos – Lili Cabral</title>
         <meta name="description" content="Conheça nossas peças exclusivas: pijamas femininos, conjuntos de lingerie e kits presenteáveis para mulheres e casais." />
       </Head>
