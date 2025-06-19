@@ -33,7 +33,7 @@ export default function Contato() {
           </a>
         </p>
         <p style={{ marginBottom: '0.5rem' }}>
-          📧 E-mail: <a href="mailto:contato@lilicabral.com.br">contato@lilicabral.com.br</a>
+          📧 E-mail: <a href="mailto:lilicabral8385@gmail.com">lilicabral8385@gmail.com</a>
         </p>
         <p>
           📸 Instagram:{' '}
