@@ -1,4 +1,4 @@
-
+import Footer from '../components/Footer';
 import Head from 'next/head';
 import Header from '../components/Header';
 import Analytics from '../components/Analytics';
@@ -13,6 +13,7 @@ export default function Contato() {
 
       <Analytics />
       <Header />
+      <Footer />
 
       <main style={{
         maxWidth: '800px',
