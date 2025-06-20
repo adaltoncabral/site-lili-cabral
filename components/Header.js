@@ -7,9 +7,11 @@ export default function Header() {
   return (
     <>
       <header className="header">
-        <Link href="/" className="logo">
-          <img src="/logo-lili-cabral.png" alt="Lili Cabral" />
-        </Link>
+        <div className="logo">
+          <Link href="/">
+            <img src="/logo-lili-cabral.png" alt="Lili Cabral" />
+          </Link>
+        </div>
 
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           ☰
@@ -21,43 +23,27 @@ export default function Header() {
           <Link href="/sobre">Sobre</Link>
           <Link href="/contato">Contato</Link>
           <Link href="/blog">Blog</Link>
-          <a
-            href="https://wa.me/5533984142006?text=Olá!%20Gostaria%20de%20falar%20com%20a%20Lili%20Cabral"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Fale Conosco
-          </a>
         </nav>
       </header>
 
       <style jsx>{`
         .header {
           background: #fff;
-          border-bottom: 1px solid #eee;
-          padding: 1rem 2rem;
+          padding: 1rem 1.5rem;
           display: flex;
-          align-items: center;
           justify-content: space-between;
+          align-items: center;
           position: fixed;
           width: 100%;
           top: 0;
           z-index: 1000;
+          border-bottom: 1px solid #eee;
         }
 
         .logo img {
-          height: 40px;
-        }
-
-        .nav {
-          display: flex;
-          gap: 1.5rem;
-        }
-
-        .nav a {
-          text-decoration: none;
-          color: #d693a8;
-          font-weight: 500;
+          height: 48px;
+          max-width: 160px;
+          width: auto;
         }
 
         .hamburger {
@@ -66,7 +52,17 @@ export default function Header() {
           border: none;
           font-size: 1.8rem;
           color: #d693a8;
-          cursor: pointer;
+        }
+
+        .nav {
+          display: flex;
+          gap: 1.2rem;
+        }
+
+        .nav a {
+          text-decoration: none;
+          color: #d693a8;
+          font-weight: 500;
         }
 
         @media (max-width: 768px) {
@@ -77,19 +73,22 @@ export default function Header() {
           .nav {
             display: none;
             position: absolute;
-            top: 60px;
-            right: 1rem;
-            background: #fff;
-            flex-direction: column;
-            gap: 1rem;
-            padding: 1rem;
+            top: 70px;
+            right: 1.5rem;
+            background: white;
             border: 1px solid #eee;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            flex-direction: column;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
           }
 
           .nav.open {
             display: flex;
+          }
+
+          .nav a {
+            padding: 0.5rem 0;
           }
         }
       `}</style>
