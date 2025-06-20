@@ -11,6 +11,10 @@ export default function Blog() {
       <Head>
         <title>Blog – Lili Cabral</title>
         <meta name="description" content="Conteúdo sobre pijamas, presentes, conforto e autoestima feminina. Leia o blog da Lili Cabral." />
+        <meta property="og:title" content="Blog – Lili Cabral" />
+        <meta property="og:description" content="Conteúdo sobre pijamas, presentes, conforto e autoestima feminina. Leia o blog da Lili Cabral." />
+        <meta property="og:image" content="/blog-preview.jpg" />
+        <meta property="og:type" content="website" />
       </Head>
 
       <Analytics />
@@ -40,13 +44,30 @@ export default function Blog() {
                 color: '#d693a8',
                 textDecoration: 'none',
                 fontWeight: 'bold',
-                fontSize: '1rem'
+                fontSize: '1rem',
+                display: 'inline-block'
               }}
             >
               🎁 5 ideias de presente com pijamas para surpreender com carinho →
             </Link>
           </li>
-          {/* Inserir outros artigos aqui futuramente */}
+
+          {/* Exemplo para futuros artigos:
+          <li style={{ marginBottom: '1.5rem' }}>
+            <Link
+              href="/blog/artigo-pijama-inverno"
+              style={{
+                color: '#d693a8',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                fontSize: '1rem',
+                display: 'inline-block'
+              }}
+            >
+              ❄️ Como escolher o pijama ideal para o inverno →
+            </Link>
+          </li>
+          */}
         </ul>
       </main>
 
