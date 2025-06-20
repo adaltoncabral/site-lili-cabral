@@ -23,7 +23,7 @@ export default function Footer() {
       </p>
       
       <p style={{ margin: '0.3rem 0', color: '#888' }}>
-        Desenvolvido com 💖 por Liriane & Adalton Cabral
+        Desenvolvido com 💖 por ACabral Consultoria
       </p>
 
       <div style={{
