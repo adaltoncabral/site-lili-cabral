@@ -1,3 +1,4 @@
+
 import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -10,39 +11,15 @@ export default function Contato() {
       <Head>
         <title>Fale Conosco – Lili Cabral</title>
         <meta name="description" content="Entre em contato com a Lili Cabral pelo WhatsApp ou Instagram. Atendimento acolhedor e personalizado." />
-        <meta property="og:title" content="Fale Conosco – Lili Cabral" />
-        <meta property="og:description" content="Entre em contato com a Lili Cabral pelo WhatsApp ou Instagram. Atendimento acolhedor e personalizado." />
-        <meta property="og:image" content="/banner-lili.jpg" />
-        <meta property="og:type" content="website" />
       </Head>
-
       <Analytics />
       <Header />
-
-      <main style={{
-        maxWidth: '800px',
-        margin: '80px auto 0',
-        padding: '2rem',
-        fontFamily: 'sans-serif',
-        color: '#191919'
-      }}>
-        <h1 style={{
-          color: '#d693a8',
-          fontSize: '2rem',
-          marginBottom: '2rem'
-        }}>
-          Fale com a Lili Cabral
-        </h1>
-        <div style={{
-          lineHeight: '1.7',
-          fontSize: '1rem'
-        }}>
-          Nosso atendimento é feito com carinho e atenção.<br /><br />
-          <strong>WhatsApp:</strong> <a href="https://wa.me/5533984142006" target="_blank" rel="noopener noreferrer">(33) 98414-2006</a><br />
-          <strong>Instagram:</strong> <a href="https://instagram.com/lili.cabral_" target="_blank" rel="noopener noreferrer">@lili.cabral_</a>
+      <main style={{ maxWidth: '800px', margin: '80px auto 0', padding: '2rem', fontFamily: 'sans-serif', color: '#191919' }}>
+        <h1 style={{ color: '#d693a8', fontSize: '2rem', marginBottom: '2rem' }}>Fale com a Lili Cabral</h1>
+        <div style={{ lineHeight: '1.7', fontSize: '1rem' }}>
+          Nosso atendimento é feito com carinho e atenção. Fale conosco pelo WhatsApp ou envie uma mensagem no Instagram.
         </div>
       </main>
-
       <FloatingButton />
       <Footer />
     </>
