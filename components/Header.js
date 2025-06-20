@@ -42,7 +42,7 @@ export default function Header() {
 
         .logo img {
           height: 48px;
-          max-width: 160px;
+          max-width: 180px;
           width: auto;
         }
 
@@ -74,13 +74,14 @@ export default function Header() {
             display: none;
             position: absolute;
             top: 70px;
-            right: 1.5rem;
+            right: 20px;
             background: white;
             border: 1px solid #eee;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 1rem;
             flex-direction: column;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            min-width: 160px;
           }
 
           .nav.open {
@@ -89,6 +90,12 @@ export default function Header() {
 
           .nav a {
             padding: 0.5rem 0;
+            color: #d693a8;
+            font-weight: 600;
+          }
+
+          .logo img {
+            height: 56px;
           }
         }
       `}</style>
