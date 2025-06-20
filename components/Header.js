@@ -6,39 +6,25 @@ export default function Header() {
 
   return (
     <>
-      <header style={{
-        background: '#fff',
-        padding: '1rem 1.5rem',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        borderBottom: '1px solid #eee',
-        position: 'fixed',
-        width: '100%',
-        top: 0,
-        zIndex: 1000
-      }}>
-        <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-          <img
-            src="/logo-lili-cabral.png"
-            alt="Lili Cabral"
-            style={{
-              height: '36px',
-              maxWidth: '140px',
-              objectFit: 'contain'
-            }}
-          />
-        </Link>
+      <header className="header">
+        <div className="logo-container">
+          <Link href="/">
+            <img
+              src="/logo-lili-cabral.png"
+              alt="Lili Cabral"
+              className="logo"
+            />
+          </Link>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="menu-toggle"
+            aria-label="Abrir Menu"
+          >
+            ☰
+          </button>
+        </div>
 
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="menu-toggle"
-          aria-label="Abrir Menu"
-        >
-          ☰
-        </button>
-
-        <nav className={menuOpen ? 'open' : ''}>
+        <nav className={`nav ${menuOpen ? 'open' : ''}`}>
           <Link href="/">Início</Link>
           <Link href="/catalogo">Catálogo</Link>
           <Link href="/sobre">Sobre</Link>
@@ -55,13 +41,39 @@ export default function Header() {
       </header>
 
       <style jsx>{`
-        nav {
+        .header {
+          background: #fff;
+          padding: 1rem 1.5rem;
           display: flex;
-          gap: 1.5rem;
-          font-size: 0.95rem;
+          flex-direction: column;
+          border-bottom: 1px solid #eee;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          z-index: 1000;
         }
 
-        a {
+        .logo-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .logo {
+          height: 32px;
+          max-width: 160px;
+          object-fit: contain;
+        }
+
+        nav {
+          display: flex;
+          gap: 1.2rem;
+          font-size: 0.95rem;
+          justify-content: center;
+          margin-top: 1rem;
+        }
+
+        nav a {
           text-decoration: none;
           color: #d693a8;
           font-weight: 500;
@@ -73,24 +85,19 @@ export default function Header() {
           border: none;
           font-size: 1.8rem;
           color: #d693a8;
-          margin-left: 12px;
           cursor: pointer;
-          z-index: 1100;
         }
 
         @media (max-width: 768px) {
           nav {
             display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background: white;
+            flex-direction: column;
+            background: #fff;
             border: 1px solid #eee;
             border-radius: 8px;
-            flex-direction: column;
             padding: 1rem;
-            width: 200px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 1rem;
           }
 
           nav.open {
