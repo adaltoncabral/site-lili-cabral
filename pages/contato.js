@@ -19,10 +19,27 @@ export default function Contato() {
       <Analytics />
       <Header />
 
-      <main style={ maxWidth: '800px', margin: '80px auto 0', padding: '2rem', fontFamily: 'sans-serif', color: '#191919' }>
-        <h1 style={ color: '#d693a8', fontSize: '2rem', marginBottom: '2rem' }>Fale com a Lili Cabral</h1>
-        <div style={ lineHeight: '1.7', fontSize: '1rem' }>
-          Nosso atendimento é feito com carinho e atenção. Fale conosco pelo WhatsApp ou envie uma mensagem no Instagram.
+      <main style={{
+        maxWidth: '800px',
+        margin: '80px auto 0',
+        padding: '2rem',
+        fontFamily: 'sans-serif',
+        color: '#191919'
+      }}>
+        <h1 style={{
+          color: '#d693a8',
+          fontSize: '2rem',
+          marginBottom: '2rem'
+        }}>
+          Fale com a Lili Cabral
+        </h1>
+        <div style={{
+          lineHeight: '1.7',
+          fontSize: '1rem'
+        }}>
+          Nosso atendimento é feito com carinho e atenção.<br /><br />
+          <strong>WhatsApp:</strong> <a href="https://wa.me/5533984142006" target="_blank" rel="noopener noreferrer">(33) 98414-2006</a><br />
+          <strong>Instagram:</strong> <a href="https://instagram.com/lili.cabral_" target="_blank" rel="noopener noreferrer">@lili.cabral_</a>
         </div>
       </main>
 
