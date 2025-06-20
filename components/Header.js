@@ -6,47 +6,43 @@ export default function Header() {
 
   return (
     <>
-      <header className="header">
-        <div className="logo">
-          <Link href="/">
-            <img src="/logo-lili-cabral.png" alt="Lili Cabral" />
-          </Link>
-        </div>
+      <header style={{
+        background: '#fff',
+        padding: '1rem 2rem',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderBottom: '1px solid #eee',
+        position: 'fixed',
+        width: '100%',
+        top: 0,
+        zIndex: 1000
+      }}>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="/logo-lili-cabral.png" alt="Lili Cabral" style={{ height: '40px', maxWidth: '160px' }} />
+        </Link>
 
-        <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+        <nav className={menuOpen ? 'open' : ''}>
           <Link href="/">Início</Link>
           <Link href="/catalogo">Catálogo</Link>
           <Link href="/sobre">Sobre</Link>
           <Link href="/contato">Contato</Link>
           <Link href="/blog">Blog</Link>
+          <a href="https://wa.me/5533984142006?text=Olá!%20Acessei%20o%20site%20da%20Lili%20Cabral%20e%20gostaria%20de%20falar%20com%20você!" target="_blank" rel="noopener noreferrer">
+            Fale Conosco
+          </a>
         </nav>
 
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu">
-          <span className="hamburger" />
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="menu-toggle"
+          aria-label="Abrir Menu"
+        >
+          ☰
         </button>
       </header>
 
       <style jsx>{`
-        .header {
-          background: #fff;
-          padding: 0.8rem 1.2rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          border-bottom: 1px solid #eee;
-          position: fixed;
-          width: 100%;
-          top: 0;
-          z-index: 1000;
-        }
-
-        .logo img {
-          height: auto;
-          max-width: 140px;
-          width: 100%;
-          object-fit: contain;
-        }
-
         nav {
           display: flex;
           gap: 1.5rem;
@@ -63,33 +59,10 @@ export default function Header() {
           display: none;
           background: none;
           border: none;
+          font-size: 1.8rem;
+          color: #d693a8;
+          margin-left: 12px;
           cursor: pointer;
-        }
-
-        .hamburger {
-          display: inline-block;
-          width: 24px;
-          height: 2px;
-          background: #d693a8;
-          position: relative;
-        }
-
-        .hamburger::before,
-        .hamburger::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          width: 24px;
-          height: 2px;
-          background: #d693a8;
-        }
-
-        .hamburger::before {
-          top: -8px;
-        }
-
-        .hamburger::after {
-          top: 8px;
         }
 
         @media (max-width: 768px) {
@@ -104,13 +77,11 @@ export default function Header() {
             flex-direction: column;
             padding: 1rem;
             width: 200px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
           }
-
           nav.open {
             display: flex;
           }
-
           .menu-toggle {
             display: block;
           }
