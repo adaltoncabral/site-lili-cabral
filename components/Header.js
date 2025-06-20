@@ -11,7 +11,7 @@ export default function Header() {
           <Link href="/">
             <img src="/logo-lili-cabral.png" alt="Lili Cabral" className="logo" />
           </Link>
-          <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir Menu">
             ☰
           </button>
         </div>
@@ -22,7 +22,11 @@ export default function Header() {
           <Link href="/sobre">Sobre</Link>
           <Link href="/contato">Contato</Link>
           <Link href="/blog">Blog</Link>
-          <a href="https://wa.me/5533984142006?text=Olá!%20Gostaria%20de%20falar%20com%20a%20Lili%20Cabral" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://wa.me/5533984142006?text=Olá!%20Gostaria%20de%20falar%20com%20a%20Lili%20Cabral"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Fale Conosco
           </a>
         </nav>
@@ -43,10 +47,13 @@ export default function Header() {
           justify-content: space-between;
           align-items: center;
           padding: 1rem 1.5rem;
+          max-width: 1140px;
+          margin: 0 auto;
         }
 
         .logo {
-          height: 36px;
+          height: auto;
+          max-height: 40px;
           max-width: 160px;
         }
 
@@ -63,13 +70,20 @@ export default function Header() {
           display: flex;
           justify-content: center;
           gap: 1.5rem;
+          font-family: 'Segoe UI', sans-serif;
+          font-size: 0.95rem;
+          font-weight: 500;
           padding: 0.5rem 0 1rem 0;
         }
 
         .nav a {
           color: #d693a8;
           text-decoration: none;
-          font-weight: 500;
+          transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+          color: #a55e77;
         }
 
         @media (max-width: 768px) {
