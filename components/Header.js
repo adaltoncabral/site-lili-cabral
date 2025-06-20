@@ -1,8 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    }
+
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [menuOpen]);
 
   return (
     <>
@@ -19,10 +36,10 @@ export default function Header() {
         zIndex: 1000
       }}>
         <Link href="/">
-          <img src="/logo-lili-cabral.png" alt="Lili Cabral" style={{ height: '48px', verticalAlign: 'middle' }} />
+          <img src="/logo-lili-cabral.png" alt="Lili Cabral" style={{ height: '48px' }} />
         </Link>
 
-        <nav className={menuOpen ? 'open' : ''}>
+        <nav className={`nav-links ${menuOpen ? 'open' : ''}`} ref={menuRef}>
           <Link href="/">Início</Link>
           <Link href="/catalogo">Catálogo</Link>
           <Link href="/sobre">Sobre</Link>
@@ -36,7 +53,8 @@ export default function Header() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="menu-toggle"
-          aria-label="Abrir Menu"
+          aria-label="Menu"
+          aria-expanded={menuOpen}
         >
           ☰
         </button>
@@ -59,7 +77,7 @@ export default function Header() {
           display: none;
           background: none;
           border: none;
-          font-size: 1.5rem;
+          font-size: 1.8rem;
           color: #d693a8;
         }
 
@@ -74,12 +92,14 @@ export default function Header() {
             border-radius: 8px;
             flex-direction: column;
             padding: 1rem;
-            width: 200px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            width: 220px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
           }
+
           nav.open {
             display: flex;
           }
+
           .menu-toggle {
             display: block;
           }
