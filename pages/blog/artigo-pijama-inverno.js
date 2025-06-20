@@ -1,4 +1,3 @@
-
 import Head from 'next/head';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -11,16 +10,19 @@ export default function ArtigoPijamaInverno() {
       <Head>
         <title>Como escolher o pijama ideal para o inverno – Blog Lili Cabral</title>
         <meta name="description" content="Dicas práticas para escolher o pijama ideal nos dias frios. Descubra tecidos, modelos e cuidados para noites mais confortáveis e estilosas." />
+        <meta property="og:title" content="Como escolher o pijama ideal para o inverno – Blog Lili Cabral" />
+        <meta property="og:description" content="Dicas práticas para escolher o pijama ideal nos dias frios. Descubra tecidos, modelos e cuidados para noites mais confortáveis e estilosas." />
+        <meta property="og:image" content="/banner-lili.jpg" />
+        <meta property="og:type" content="article" />
       </Head>
 
       <Analytics />
       <Header />
 
       <main style={{
-        marginTop: '80px',
+        margin: '80px auto 0',
         padding: '2rem',
         maxWidth: '800px',
-        margin: '80px auto 0',
         fontFamily: 'sans-serif',
         lineHeight: '1.7',
         color: '#333'
@@ -56,7 +58,8 @@ export default function ArtigoPijamaInverno() {
         </p>
 
         <p style={{ marginTop: '2rem', fontWeight: 'bold', color: '#555' }}>
-          Que tal renovar seu pijama neste inverno? Confira os modelos disponíveis no nosso <a href="/catalogo" style={{ color: '#d693a8', textDecoration: 'none' }}>catálogo</a> e peça direto pelo WhatsApp!
+          Que tal renovar seu pijama neste inverno? Confira os modelos disponíveis no nosso{' '}
+          <a href="/catalogo" style={{ color: '#d693a8', textDecoration: 'none' }}>catálogo</a> e peça direto pelo WhatsApp!
         </p>
       </main>
 
