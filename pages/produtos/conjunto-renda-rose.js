@@ -20,9 +20,9 @@ export default function Produto() {
         fontFamily: 'sans-serif',
         color: '#191919'
       }}>
-        <h1 style={ { color: '#d693a8', marginBottom: '1rem', fontSize: '1.8rem' } }>Conjunto Renda Rosé</h1>
-        <img src="/Conjunto_Renda_Rose.png" alt="Conjunto Renda Rosé" style={ { width: '100%', borderRadius: '12px', marginBottom: '1.5rem' } } />
-        <p style={ { fontSize: '1rem', lineHeight: '1.7' } }>
+        <h1 style={{ color: '#d693a8', marginBottom: '1rem', fontSize: '1.8rem' }}>Conjunto Renda Rosé</h1>
+        <img src="/Conjunto_Renda_Rose.png" alt="Conjunto Renda Rosé" style={{ width: '100%', borderRadius: '12px', marginBottom: '1.5rem' }} />
+        <p style={{ fontSize: '1rem', lineHeight: '1.7' }}>
           Delicadeza que abraça, conforto que encanta.
         </p>
         <p style={{ marginTop: '2rem' }}>
