@@ -1,59 +1,90 @@
-import Head from 'next/head'; import Header from '../components/Header'; import Footer from '../components/Footer'; import FloatingButton from '../components/FloatingButton'; import Analytics from '../components/Analytics';
+import Head from 'next/head';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import FloatingButton from '../components/FloatingButton';
+import Analytics from '../components/Analytics';
+import emailjs from '@emailjs/browser';
+import { useRef, useState } from 'react';
 
-export default function Contato() { return ( <> <Head> <title>Fale Conosco – Lili Cabral</title> <meta name="description" content="Entre em contato com a equipe da Lili Cabral para dúvidas, pedidos ou parcerias." /> </Head>
+export default function Contato() {
+  const form = useRef();
+  const [enviado, setEnviado] = useState(false);
+  const [erro, setErro] = useState(false);
 
-<Analytics />
-  <Header />
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-  <main style={{ maxWidth: '800px', margin: '80px auto 0', padding: '2rem', fontFamily: 'sans-serif', color: '#191919' }}>
-    <h1 style={{ color: '#d693a8', fontSize: '2rem', marginBottom: '2rem', textAlign: 'center' }}>Fale Conosco</h1>
+    emailjs.sendForm('service_tl1ewvp', 'template_ju8s93h', form.current, 'q4PZYFIcv2Utb1ZZ5')
+      .then(() => {
+        setEnviado(true);
+        setErro(false);
+        form.current.reset();
+      }, () => {
+        setErro(true);
+      });
+  };
 
-    <form style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <input
-        type="text"
-        name="nome"
-        placeholder="Seu nome"
-        required
-        style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #ccc' }}
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="Seu e-mail"
-        required
-        style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #ccc' }}
-      />
-      <textarea
-        name="mensagem"
-        placeholder="Escreva sua mensagem..."
-        required
-        rows="5"
-        style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #ccc' }}
-      />
-      <button type="submit" style={{
-        backgroundColor: '#d693a8',
-        color: '#fff',
-        padding: '0.8rem',
-        border: 'none',
-        borderRadius: '8px',
-        fontWeight: 'bold',
-        cursor: 'pointer'
+  return (
+    <>
+      <Head>
+        <title>Fale Conosco – Lili Cabral</title>
+        <meta name="description" content="Entre em contato com a Lili Cabral pelo WhatsApp, Instagram ou formulário. Atendimento acolhedor e personalizado." />
+      </Head>
+
+      <Analytics />
+      <Header />
+
+      <main style={{
+        maxWidth: '800px',
+        margin: '80px auto 0',
+        padding: '2rem',
+        fontFamily: 'sans-serif',
+        color: '#191919'
       }}>
-        Enviar mensagem
-      </button>
-    </form>
+        <h1 style={{ color: '#d693a8', fontSize: '2rem', marginBottom: '2rem' }}>Fale com a Lili Cabral</h1>
 
-    <div style={{ marginTop: '3rem', fontSize: '0.95rem', lineHeight: '1.6' }}>
-      <p><strong>E-mail:</strong> lilicabral8385@gmail.com</p>
-      <p><strong>WhatsApp:</strong> <a href="https://wa.me/5533984142006" target="_blank" rel="noopener noreferrer" style={{ color: '#25d366', textDecoration: 'none' }}>(33) 98414-2006</a></p>
-      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/lilicabral_" target="_blank" rel="noopener noreferrer" style={{ color: '#d693a8', textDecoration: 'none' }}>@lilicabral_</a></p>
-    </div>
-  </main>
+        <p style={{ lineHeight: '1.7', marginBottom: '2rem' }}>
+          Nosso atendimento é feito com carinho e atenção. Fale conosco pelo WhatsApp, Instagram ou envie sua mensagem pelo formulário abaixo.
+        </p>
 
-  <FloatingButton />
-  <Footer />
-</>
+        <form ref={form} onSubmit={sendEmail} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <input type="text" name="user_name" placeholder="Seu nome" required style={estiloInput} />
+          <input type="email" name="user_email" placeholder="Seu e-mail" required style={estiloInput} />
+          <textarea name="message" rows="5" placeholder="Digite sua mensagem" required style={estiloTextArea}></textarea>
+          <button type="submit" style={estiloBotao}>Enviar mensagem</button>
+        </form>
 
-); }
+        {enviado && <p style={{ color: 'green', marginTop: '1rem' }}>Mensagem enviada com sucesso! 💌</p>}
+        {erro && <p style={{ color: 'red', marginTop: '1rem' }}>Erro ao enviar. Tente novamente.</p>}
+      </main>
 
-  
+      <FloatingButton />
+      <Footer />
+    </>
+  );
+}
+
+const estiloInput = {
+  padding: '0.75rem',
+  border: '1px solid #ccc',
+  borderRadius: '6px',
+  fontSize: '1rem'
+};
+
+const estiloTextArea = {
+  padding: '0.75rem',
+  border: '1px solid #ccc',
+  borderRadius: '6px',
+  fontSize: '1rem',
+  resize: 'vertical'
+};
+
+const estiloBotao = {
+  backgroundColor: '#d693a8',
+  color: '#fff',
+  border: 'none',
+  padding: '0.75rem 1.5rem',
+  borderRadius: '6px',
+  fontSize: '1rem',
+  cursor: 'pointer'
+};
