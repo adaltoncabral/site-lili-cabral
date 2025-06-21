@@ -48,7 +48,7 @@ export default function Sobre() {
         </p>
 
         <p style={{ fontSize: '1rem', lineHeight: '1.8', marginTop: '1.5rem' }}>
-          A Lili Cabral acredita que um presente vai muito além do produto. É um gesto de carinho, de cuidado, de amor. Por isso, cada criação nossa — seja um pijama, uma lingerie ou um kit especial — é desenvolvida com qualidade superior, toque delicado e atenção aos detalhes.
+          A Lili Cabral acredita que um presente vai muito além do produto. É um gesto de carinho, de cuidado, de amor. Por isso, cada produto nossao — seja um pijama, uma lingerie ou um kit especial — é desenvolvida com qualidade superior, toque delicado e atenção aos detalhes.
         </p>
 
         <p style={{ fontSize: '1rem', lineHeight: '1.8', marginTop: '1.5rem' }}>
