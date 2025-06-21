@@ -1,54 +1,83 @@
-import Head from 'next/head'; import Header from '../components/Header'; import Footer from '../components/Footer'; import FloatingButton from '../components/FloatingButton'; import Analytics from '../components/Analytics';
+import Head from 'next/head'; import Header from '../components/Header'; import Footer from '../components/Footer'; import FloatingButton from '../components/FloatingButton'; import Analytics from '../components/Analytics'; import { useEffect, useState } from 'react';
 
-export default function Home() { return ( <> <Head> <title>Lili Cabral – Pijamas, Lingeries e Presentes com Carinho</title> <meta name="description" content="Descubra pijamas e lingeries de altíssima qualidade para presentear ou se presentear. Conforto, carinho e elegância com entrega para todo o Brasil." /> </Head>
+const banners = [ '/banner1.jpg', '/banner2.jpg', '/banner3.jpg' ];
 
-<Analytics />
-  <Header />
+export default function Home() { const [current, setCurrent] = useState(0);
 
-  {/* Banner Principal */}
-  <section style={{ marginTop: '80px' }}>
-    <img
-      src="/banner-principal.png"
-      alt="Banner Principal"
-      style={{
-        width: '100%',
-        maxHeight: '380px',
-        objectFit: 'cover',
-        borderRadius: '8px'
-      }}
-    />
-  </section>
+useEffect(() => { const interval = setInterval(() => { setCurrent((prev) => (prev + 1) % banners.length); }, 4000); return () => clearInterval(interval); }, []);
 
-  {/* Ícones de Acesso Rápido */}
-  <section style={{
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-    padding: '2rem 1rem'
-  }}>
-    <a href="/catalogo" style={iconStyle}><img src="/icone-pijamas.png" alt="Pijamas" style={iconImageStyle} /><p>Pijamas</p></a>
-    <a href="/catalogo" style={iconStyle}><img src="/icone-lingeries.png" alt="Lingeries" style={iconImageStyle} /><p>Lingeries</p></a>
-    <a href="/catalogo" style={iconStyle}><img src="/icone-promocoes.png" alt="Promoções" style={iconImageStyle} /><p>Promoções</p></a>
-    <a href="/catalogo" style={iconStyle}><img src="/icone-colecoes.png" alt="Coleções Especiais" style={iconImageStyle} /><p>Coleções</p></a>
-  </section>
+return ( <> <Head> <title>Lili Cabral – Pijamas & Lingeries</title> <meta name="description" content="Pijamas e lingeries que transformam conforto em presente. Descubra a Lili Cabral." /> </Head> <Analytics /> <Header />
+
+<main className="main">
+    <section className="carousel">
+      <img src={banners[current]} alt="Banner" className="carousel-img" />
+    </section>
+
+    <section className="icones">
+      <div className="icone">
+        <img src="/icons/pijama.png" alt="Pijamas" />
+        <span>Pijamas</span>
+      </div>
+      <div className="icone">
+        <img src="/icons/lingerie.png" alt="Lingeries" />
+        <span>Lingeries</span>
+      </div>
+      <div className="icone">
+        <img src="/icons/promocao.png" alt="Promoções" />
+        <span>Promoções</span>
+      </div>
+      <div className="icone">
+        <img src="/icons/colecao.png" alt="Coleções" />
+        <span>Coleções</span>
+      </div>
+    </section>
+  </main>
 
   <FloatingButton />
   <Footer />
 
   <style jsx>{`
-    p {
-      font-size: 0.9rem;
-      color: #191919;
-      margin-top: 0.5rem;
+    .main {
+      margin-top: 80px;
+      padding: 1rem;
+    }
+
+    .carousel {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .carousel-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .icones {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .icone img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.5rem;
+    }
+
+    .icone span {
+      display: block;
+      font-weight: 500;
+      color: #d693a8;
     }
   `}</style>
 </>
 
 ); }
 
-const iconStyle = { display: 'flex', flexDirection: 'column', alignItems: 'center', textDecoration: 'none', margin: '1rem' };
-
-const iconImageStyle = { width: '60px', height: '60px', objectFit: 'contain' };
-
-      
+  
