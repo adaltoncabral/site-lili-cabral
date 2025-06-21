@@ -1,43 +1,103 @@
-import Head from 'next/head'; import Header from '../components/Header'; import Footer from '../components/Footer'; import FloatingButton from '../components/FloatingButton'; import Analytics from '../components/Analytics';
+import Head from 'next/head';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Analytics from '../components/Analytics';
+import emailjs from '@emailjs/browser';
+import { useRef, useState } from 'react';
 
-export default function Sobre() { return ( <> <Head> <title>Sobre a Lili Cabral – Pijamas & Lingeries</title> <meta name="description" content="A história da Lili Cabral: uma marca criada para valorizar o conforto, a delicadeza e a autoestima das mulheres, direto de Manhuaçu-MG para todo o Brasil." /> <meta property="og:title" content="Sobre a Lili Cabral – Pijamas & Lingeries" /> <meta property="og:description" content="A história da Lili Cabral: uma marca criada para valorizar o conforto, a delicadeza e a autoestima das mulheres, direto de Manhuaçu-MG para todo o Brasil." /> <meta property="og:image" content="/banner-lili.jpg" /> <meta property="og:type" content="website" /> </Head>
+export default function Contato() {
+  const form = useRef(null);
+  const [status, setStatus] = useState('idle');
 
-<Analytics />
-  <Header />
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.sendForm(
+      'service_tl1ewvp',
+      'template_ju8s93h',
+      form.current,
+      'q4PZYFIcv2Utb1ZZ5'
+    )
+      .then(() => setStatus('sent'))
+      .catch(() => setStatus('error'));
 
-  <main style={{
-    maxWidth: '900px',
-    margin: '80px auto 0',
-    padding: '2rem',
-    fontFamily: 'sans-serif',
-    color: '#191919'
-  }}>
-    <h1 style={{
-      color: '#d693a8',
-      fontSize: '2rem',
-      marginBottom: '1.5rem',
-      textAlign: 'center'
-    }}>
-      Quem Somos
-    </h1>
+    form.current.reset();
+  };
 
-    <p style={{ fontSize: '1rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
-      A <strong>Lili Cabral</strong> nasceu do desejo de transformar o ato de vestir em uma experiência de cuidado, conforto e beleza. Criada por <strong>Liriane Cabral</strong> em Manhuaçu-MG, a marca surgiu com um propósito claro: oferecer produtos de altíssima qualidade que sejam mais do que vestuário – sejam uma verdadeira demonstração de carinho, afeto e autoestima para quem usa e para quem presenteia.
-    </p>
+  return (
+    <>
+      <Head>
+        <title>Fale Conosco – Lili Cabral</title>
+        <meta name="description" content="Entre em contato com a equipe da Lili Cabral. Envie dúvidas, sugestões ou mensagens personalizadas." />
+      </Head>
 
-    <p style={{ fontSize: '1rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
-      Mais do que vender roupas, a Lili Cabral entrega acolhimento. Cada peça é pensada para proporcionar aconchego, sofisticação e funcionalidade, seja em noites de descanso, momentos de autocuidado ou ocasiões especiais que pedem elegância e personalidade.
-    </p>
+      <Analytics />
+      <Header />
 
-    <p style={{ fontSize: '1rem', lineHeight: '1.8' }}>
-      Hoje, atendemos clientes de todo o Brasil com uma loja virtual intuitiva, atendimento humanizado e uma curadoria de produtos feita com amor. Porque se vestir bem é também se sentir amada.
-    </p>
-  </main>
+      <main style={{
+        maxWidth: '700px',
+        margin: '80px auto 0',
+        padding: '2rem',
+        fontFamily: 'sans-serif',
+        color: '#191919'
+      }}>
+        <h1 style={{ color: '#d693a8', fontSize: '2rem', marginBottom: '1.5rem', textAlign: 'center' }}>
+          Fale com a Lili Cabral
+        </h1>
 
-  <FloatingButton />
-  <Footer />
-</>
+        <p style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          Preencha o formulário abaixo e retornaremos o mais breve possível.
+        </p>
 
-); }
+        <form ref={form} onSubmit={sendEmail} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <input
+            type="text"
+            name="user_name"
+            placeholder="Seu nome"
+            required
+            style={inputStyle}
+          />
+          <input
+            type="email"
+            name="user_email"
+            placeholder="Seu e-mail"
+            required
+            style={inputStyle}
+          />
+          <textarea
+            name="message"
+            placeholder="Sua mensagem"
+            required
+            rows={5}
+            style={{ ...inputStyle, resize: 'vertical' }}
+          />
+          <button type="submit" style={buttonStyle}>
+            Enviar mensagem
+          </button>
+        </form>
 
-  
+        {status === 'sent' && <p style={{ color: 'green', marginTop: '1rem' }}>Mensagem enviada com sucesso!</p>}
+        {status === 'error' && <p style={{ color: 'red', marginTop: '1rem' }}>Erro ao enviar. Tente novamente.</p>}
+      </main>
+
+      <Footer />
+    </>
+  );
+}
+
+const inputStyle = {
+  padding: '0.75rem 1rem',
+  borderRadius: '8px',
+  border: '1px solid #ccc',
+  fontSize: '1rem'
+};
+
+const buttonStyle = {
+  padding: '0.75rem 1.5rem',
+  backgroundColor: '#d693a8',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '8px',
+  fontWeight: 'bold',
+  cursor: 'pointer',
+  fontSize: '1rem'
+};
