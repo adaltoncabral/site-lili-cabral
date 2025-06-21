@@ -1,4 +1,3 @@
-
 import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -34,32 +33,68 @@ export default function Catalogo() {
         <title>Catálogo – Lili Cabral</title>
         <meta name="description" content="Explore nossa coleção de pijamas e lingeries com conforto e elegância." />
       </Head>
+
       <Analytics />
       <Header />
-      <main style={{ padding: '2rem', fontFamily: 'sans-serif', marginTop: '80px' }}>
-        <h1 style={{ color: '#d693a8', textAlign: 'center' }}>Nosso Catálogo</h1>
+
+      <main style={{
+        padding: '2rem',
+        fontFamily: 'sans-serif',
+        marginTop: '80px'
+      }}>
+        <h1 style={{
+          color: '#d693a8',
+          textAlign: 'center',
+          fontSize: '2rem',
+          marginBottom: '2rem'
+        }}>
+          Nosso Catálogo
+        </h1>
+
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '2rem',
-          marginTop: '2rem'
+          gap: '2rem'
         }}>
           {produtos.map((p, i) => (
-            <div key={i} style={{
+            <Link key={i} href={p.link} style={{
+              textDecoration: 'none',
               border: '1px solid #eee',
               padding: '1rem',
               borderRadius: '12px',
-              textAlign: 'center'
+              textAlign: 'center',
+              transition: 'box-shadow 0.3s ease',
+              backgroundColor: '#fff'
             }}>
-              <Link href={p.link} style={{ textDecoration: 'none' }}>
-                <img src={p.imagem} alt={p.nome} style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }} />
-                <h2 style={{ marginBottom: '0.5rem', color: '#191919' }}>{p.nome}</h2>
-                <p style={{ fontStyle: 'italic', color: '#8d7974' }}>{p.frase}</p>
-              </Link>
-            </div>
+              <img
+                src={p.imagem}
+                alt={p.nome}
+                loading="lazy"
+                style={{
+                  width: '100%',
+                  borderRadius: '8px',
+                  marginBottom: '1rem'
+                }}
+              />
+              <h2 style={{
+                marginBottom: '0.5rem',
+                color: '#191919',
+                fontSize: '1.1rem'
+              }}>
+                {p.nome}
+              </h2>
+              <p style={{
+                fontStyle: 'italic',
+                color: '#8d7974',
+                fontSize: '0.95rem'
+              }}>
+                {p.frase}
+              </p>
+            </Link>
           ))}
         </div>
       </main>
+
       <FloatingButton />
       <Footer />
     </>
