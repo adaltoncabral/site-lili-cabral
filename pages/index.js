@@ -30,7 +30,7 @@ export default function Home() { return ( <> <Head> <title>Lili Cabral – Pijam
     <a href="/catalogo" style={iconStyle}><img src="/icone-pijamas.png" alt="Pijamas" style={iconImageStyle} /><p>Pijamas</p></a>
     <a href="/catalogo" style={iconStyle}><img src="/icone-lingeries.png" alt="Lingeries" style={iconImageStyle} /><p>Lingeries</p></a>
     <a href="/catalogo" style={iconStyle}><img src="/icone-promocoes.png" alt="Promoções" style={iconImageStyle} /><p>Promoções</p></a>
-    <a href="/catalogo" style={iconStyle}><img src="/icone-especiais.png" alt="Coleções Especiais" style={iconImageStyle} /><p>Especiais</p></a>
+    <a href="/catalogo" style={iconStyle}><img src="/icone-colecoes.png" alt="Coleções Especiais" style={iconImageStyle} /><p>Coleções</p></a>
   </section>
 
   <FloatingButton />
