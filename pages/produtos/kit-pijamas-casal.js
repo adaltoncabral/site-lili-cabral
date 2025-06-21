@@ -8,8 +8,8 @@ export default function Produto() {
   return (
     <>
       <Head>
-        <title>Conjunto Renda Rosé – Lili Cabral</title>
-        <meta name="description" content="Delicadeza que abraça, conforto que encanta. Perfeito para momentos especiais." />
+        <title>Kit Pijamas Casal – Conforto & Amor – Lili Cabral</title>
+        <meta name="description" content="Para dormir juntinho, com estilo e carinho. Ideal para presentear em datas especiais." />
       </Head>
 
       <Analytics />
@@ -23,11 +23,11 @@ export default function Produto() {
         lineHeight: '1.7',
         color: '#333'
       }>
-        <img src="/Conjunto_Renda_Rose.png" alt="Conjunto Renda Rosé" style={ width: '100%', borderRadius: '12px', marginBottom: '1.5rem' } />
-        <h1 style={ color: '#d693a8', marginBottom: '1rem', fontSize: '1.8rem' }>Conjunto Renda Rosé</h1>
-        <p style={ fontSize: '1rem', marginBottom: '1.5rem' }>Delicadeza que abraça, conforto que encanta. Perfeito para momentos especiais.</p>
+        <img src="/Kit_Pijamas_Casal.png" alt="Kit Pijamas Casal – Conforto & Amor" style={ width: '100%', borderRadius: '12px', marginBottom: '1.5rem' } />
+        <h1 style={ color: '#d693a8', marginBottom: '1rem', fontSize: '1.8rem' }>Kit Pijamas Casal – Conforto & Amor</h1>
+        <p style={ fontSize: '1rem', marginBottom: '1.5rem' }>Para dormir juntinho, com estilo e carinho. Ideal para presentear em datas especiais.</p>
 
-        <a href="https://wa.me/5533984142006?text=Olá! Vi o Conjunto Renda Rosé no site da Lili Cabral e gostaria de saber mais!"
+        <a href="https://wa.me/5533984142006?text=Olá! Vi o Kit Pijamas Casal no site da Lili Cabral e gostaria de saber mais!"
           target="_blank"
           rel="noopener noreferrer"
           style={
