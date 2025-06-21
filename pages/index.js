@@ -21,7 +21,7 @@ export default function Home() {
       <main style={{ marginTop: '80px', fontFamily: 'sans-serif', color: '#191919' }}>
         {/* Banner Principal */}
         <section style={{ textAlign: 'center', padding: '3rem 1rem', background: '#FDF3E7' }}>
-          <img src="/banner-home.jpg" alt="Banner Lili Cabral" style={{ maxWidth: '100%', borderRadius: '12px' }} />
+          <img src="/banner-principal.png" alt="Banner Lili Cabral" style={{ maxWidth: '100%', borderRadius: '12px', marginBottom: '2rem' }} />
           <h1 style={{ color: '#d693a8', marginTop: '1.5rem' }}>Conforto, delicadeza e autoestima para seu descanso</h1>
           <p style={{ maxWidth: '600px', margin: '1rem auto' }}>
             Pijamas, lingeries e kits presenteáveis pensados para transformar sua rotina de descanso em um momento especial.
