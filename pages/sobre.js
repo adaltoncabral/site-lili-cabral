@@ -1,4 +1,3 @@
-
 import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -9,19 +8,46 @@ export default function Sobre() {
   return (
     <>
       <Head>
-        <title>Quem Somos – Lili Cabral</title>
-        <meta name="description" content="Conheça a história da Lili Cabral, criada em Manhuaçu-MG para valorizar o conforto e a autoestima feminina." />
+        <title>Sobre a Lili Cabral – Pijamas & Lingeries</title>
+        <meta name="description" content="A história da Lili Cabral: uma marca criada para valorizar o conforto, a delicadeza e a autoestima das mulheres, direto de Manhuaçu-MG para todo o Brasil." />
+        <meta property="og:title" content="Sobre a Lili Cabral – Pijamas & Lingeries" />
+        <meta property="og:description" content="A história da Lili Cabral: uma marca criada para valorizar o conforto, a delicadeza e a autoestima das mulheres, direto de Manhuaçu-MG para todo o Brasil." />
+        <meta property="og:image" content="/banner-lili.jpg" />
+        <meta property="og:type" content="website" />
       </Head>
+
       <Analytics />
       <Header />
-      <main style={{ maxWidth: '800px', margin: '80px auto 0', padding: '2rem', fontFamily: 'sans-serif', color: '#191919' }}>
-        <h1 style={{ color: '#d693a8', fontSize: '2rem', marginBottom: '2rem' }}>Quem somos</h1>
-        <div style={{ lineHeight: '1.7', fontSize: '1rem' }}>
-          A <strong>Lili Cabral</strong> é mais do que uma loja virtual de pijamas e lingeries. É uma marca que nasceu do desejo de levar conforto, autoestima e beleza ao dia a dia de mulheres reais, com peças pensadas para transformar o descanso em um momento especial.
-          <br /><br />
-          Criada por <strong>Liriane Cabral</strong>, a Lili Cabral nasceu em Manhuaçu-MG e alcança todo o Brasil com uma proposta clara: entregar delicadeza, qualidade e acolhimento em cada peça.
-        </div>
+
+      <main style={{
+        maxWidth: '900px',
+        margin: '80px auto 0',
+        padding: '2rem',
+        fontFamily: 'sans-serif',
+        color: '#191919'
+      }}>
+        <h1 style={{
+          color: '#d693a8',
+          fontSize: '2rem',
+          marginBottom: '1.5rem',
+          textAlign: 'center'
+        }}>
+          Quem Somos
+        </h1>
+
+        <p style={{ fontSize: '1rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+          A <strong>Lili Cabral</strong> nasceu do desejo de transformar o ato de vestir em uma experiência de cuidado, conforto e beleza. Criada por <strong>Liriane Cabral</strong> em Manhuaçu-MG, a marca surgiu com um propósito claro: oferecer pijamas e lingeries que valorizem o bem-estar, a autoestima e a delicadeza das mulheres em todos os momentos.
+        </p>
+
+        <p style={{ fontSize: '1rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+          Mais do que vender roupas, a Lili Cabral entrega acolhimento. Cada peça é pensada para proporcionar aconchego, sofisticação e funcionalidade, desde noites tranquilas de descanso até momentos especiais que merecem ser celebrados com elegância.
+        </p>
+
+        <p style={{ fontSize: '1rem', lineHeight: '1.8' }}>
+          Hoje, atendemos clientes de todo o Brasil com uma loja virtual intuitiva e atendimento humanizado. Seguimos firmes no nosso compromisso: espalhar carinho e conforto, peça por peça.
+        </p>
       </main>
+
       <FloatingButton />
       <Footer />
     </>
