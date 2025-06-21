@@ -43,8 +43,22 @@ export default function Sobre() {
           Mais do que vender roupas, a Lili Cabral entrega acolhimento. Cada peça é pensada para proporcionar aconchego, sofisticação e funcionalidade, desde noites tranquilas de descanso até momentos especiais que merecem ser celebrados com elegância.
         </p>
 
-        <p style={{ fontSize: '1rem', lineHeight: '1.8' }}>
+        <p style={{ fontSize: '1rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
           Hoje, atendemos clientes de todo o Brasil com uma loja virtual intuitiva e atendimento humanizado. Seguimos firmes no nosso compromisso: espalhar carinho e conforto, peça por peça.
+        </p>
+
+        <p style={{ fontSize: '1rem', lineHeight: '1.8', marginTop: '1.5rem' }}>
+          A Lili Cabral acredita que um presente vai muito além do produto. É um gesto de carinho, de cuidado, de amor. Por isso, cada criação nossa — seja um pijama, uma lingerie ou um kit especial — é desenvolvida com qualidade superior, toque delicado e atenção aos detalhes.
+        </p>
+
+        <p style={{ fontSize: '1rem', lineHeight: '1.8', marginTop: '1.5rem' }}>
+          Nossas peças são pensadas para vestir não apenas o corpo, mas também as emoções. São escolhas perfeitas para quem deseja se presentear com mais bem-estar, ou surpreender alguém querido com algo que traduz acolhimento em forma de tecido.
+        </p>
+
+        <p style={{ fontSize: '1rem', lineHeight: '1.8', marginTop: '1.5rem' }}>
+          <a href="/catalogo" style={{ color: '#d693a8', textDecoration: 'underline', fontWeight: 'bold' }}>
+            Descubra a coleção e transforme o seu presente em um momento inesquecível →
+          </a>
         </p>
       </main>
 
