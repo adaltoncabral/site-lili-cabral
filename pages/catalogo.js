@@ -9,21 +9,21 @@ import Link from 'next/link';
 const todosProdutos = [
   {
     nome: 'Conjunto Renda Rosé',
-    categoria: 'lingeries',
+    categorias: ['lingeries', 'colecoes'],
     imagem: '/Conjunto_Renda_Rose.png',
     frase: 'Delicadeza que abraça, conforto que encanta.',
     link: '/produtos/conjunto-renda-rose'
   },
   {
     nome: 'Robe Sensual em Cetim',
-    categoria: 'lingeries',
+    categorias: ['lingeries', 'promocoes'],
     imagem: '/Robe_Sensual_Cetim.png',
     frase: 'Presença e poder com toque de cetim.',
     link: '/produtos/robe-sensual-cetim'
   },
   {
     nome: 'Kit Pijamas Casal – Conforto & Amor',
-    categoria: 'pijamas',
+    categorias: ['pijamas'],
     imagem: '/Kit_Pijamas_Casal.png',
     frase: 'Para dormir juntinho, com estilo e carinho.',
     link: '/produtos/kit-pijamas-casal'
@@ -35,8 +35,15 @@ export default function Catalogo() {
   const categoriaSelecionada = router.query?.p || null;
 
   const produtosFiltrados = categoriaSelecionada
-    ? todosProdutos.filter(p => p.categoria === categoriaSelecionada)
+    ? todosProdutos.filter(p => p.categorias.includes(categoriaSelecionada))
     : todosProdutos;
+
+  const titulo = {
+    pijamas: 'Pijamas',
+    lingeries: 'Lingeries',
+    promocoes: 'Promoções',
+    colecoes: 'Coleções Especiais'
+  }[categoriaSelecionada] || 'Nosso Catálogo';
 
   return (
     <>
@@ -48,9 +55,7 @@ export default function Catalogo() {
       <Header />
 
       <main style={{ padding: '2rem', fontFamily: 'sans-serif', marginTop: '80px' }}>
-        <h1 style={{ color: '#d693a8', textAlign: 'center' }}>
-          {categoriaSelecionada ? `Categoria: ${categoriaSelecionada}` : 'Nosso Catálogo'}
-        </h1>
+        <h1 style={{ color: '#d693a8', textAlign: 'center' }}>{titulo}</h1>
 
         <div style={{
           display: 'grid',
