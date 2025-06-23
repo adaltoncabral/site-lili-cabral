@@ -6,113 +6,76 @@ export default function Home() { const [current, setCurrent] = useState(0);
 
 useEffect(() => { const interval = setInterval(() => { setCurrent((prev) => (prev + 1) % banners.length); }, 4000); return () => clearInterval(interval); }, []);
 
-const handlePrev = () => { setCurrent((prev) => (prev - 1 + banners.length) % banners.length); };
-
-const handleNext = () => { setCurrent((prev) => (prev + 1) % banners.length); };
-
 return ( <> <Head> <title>Lili Cabral – Conforto que Presenteia</title> <meta name="description" content="Pijamas, lingeries e presentes especiais para quem você ama – ou para você mesma." /> </Head>
 
 <Analytics />
   <Header />
 
   <main style={{ marginTop: '80px', fontFamily: 'sans-serif' }}>
-    {/* Carrossel com aspecto 16:9 */}
-    <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', overflow: 'hidden' }}>
-      {banners.map((src, index) => (
-        <Image
-          key={index}
-          src={src}
-          alt={`Banner ${index + 1}`}
-          fill
-          style={{
-            objectFit: 'cover',
-            transition: 'opacity 0.5s ease',
-            opacity: index === current ? 1 : 0,
-            position: 'absolute'
-          }}
-          priority={index === 0}
-        />
-      ))}
-      {/* Botão central */}
-      <div style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        zIndex: 1
-      }}>
-        <Link href="/catalogo">
-          <a style={{
-            backgroundColor: '#d693a8',
-            color: '#fff',
-            padding: '12px 24px',
-            borderRadius: '8px',
-            fontWeight: 'bold',
-            textDecoration: 'none',
-            fontSize: '1rem'
-          }}>
-            Ver Coleções
-          </a>
-        </Link>
+    {/* Carrossel de banners */}
+    <div style={{ position: 'relative', width: '100%', maxHeight: '450px', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9' }}>
+        {banners.map((src, index) => (
+          <Image
+            key={index}
+            src={src}
+            alt={`Banner ${index + 1}`}
+            fill
+            style={{
+              objectFit: 'cover',
+              transition: 'opacity 0.5s ease',
+              opacity: index === current ? 1 : 0,
+              position: 'absolute'
+            }}
+            priority={index === 0}
+          />
+        ))}
       </div>
 
-      {/* Controles do carrossel */}
-      <button onClick={handlePrev} style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.3)', border: 'none', color: 'white', fontSize: '2rem', cursor: 'pointer', zIndex: 2 }}>‹</button>
-      <button onClick={handleNext} style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.3)', border: 'none', color: 'white', fontSize: '2rem', cursor: 'pointer', zIndex: 2 }}>›</button>
+      {/* Indicadores do carrossel */}
+      <div style={{ position: 'absolute', bottom: '10px', width: '100%', display: 'flex', justifyContent: 'center', gap: '8px' }}>
+        {banners.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            style={{
+              width: '10px',
+              height: '10px',
+              borderRadius: '50%',
+              backgroundColor: current === i ? '#d693a8' : '#fff',
+              border: '1px solid #ccc',
+              cursor: 'pointer'
+            }}
+          />
+        ))}
+      </div>
     </div>
 
-    {/* Indicadores (bullets) */}
-    <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-      {banners.map((_, index) => (
-        <span
-          key={index}
-          onClick={() => setCurrent(index)}
-          style={{
-            display: 'inline-block',
-            width: '12px',
-            height: '12px',
-            margin: '0 6px',
-            borderRadius: '50%',
-            backgroundColor: index === current ? '#d693a8' : '#ccc',
-            cursor: 'pointer'
-          }}
-        ></span>
-      ))}
-    </div>
-
-    {/* Ícones de Categorias */}
-    <section style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-      gap: '1.5rem',
-      padding: '2rem 1rem',
-      maxWidth: '1000px',
-      margin: '0 auto',
-      textAlign: 'center'
-    }}>
+    {/* Ícones de categorias */}
+    <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1.5rem', padding: '2rem 1rem', maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
       <Link href="/catalogo?pijamas">
-        <a>
+        <div>
           <Image src="/icones/icon-pijama.png" alt="Pijamas" width={64} height={64} />
-          <p style={{ marginTop: '0.5rem' }}>Pijamas</p>
-        </a>
+          <p>Pijamas</p>
+        </div>
       </Link>
       <Link href="/catalogo?lingeries">
-        <a>
+        <div>
           <Image src="/icones/icon-lingerie.png" alt="Lingeries" width={64} height={64} />
-          <p style={{ marginTop: '0.5rem' }}>Lingeries</p>
-        </a>
+          <p>Lingeries</p>
+        </div>
       </Link>
       <Link href="/catalogo?promocoes">
-        <a>
+        <div>
           <Image src="/icones/icon-promocao.png" alt="Promoções" width={64} height={64} />
-          <p style={{ marginTop: '0.5rem' }}>Promoções</p>
-        </a>
+          <p>Promoções</p>
+        </div>
       </Link>
       <Link href="/catalogo?colecoes">
-        <a>
+        <div>
           <Image src="/icones/icon-especial.png" alt="Coleções Especiais" width={64} height={64} />
-          <p style={{ marginTop: '0.5rem' }}>Coleções Especiais</p>
-        </a>
+          <p>Coleções Especiais</p>
+        </div>
       </Link>
     </section>
   </main>
@@ -123,4 +86,3 @@ return ( <> <Head> <title>Lili Cabral – Conforto que Presenteia</title> <meta 
 
 ); }
 
-      
