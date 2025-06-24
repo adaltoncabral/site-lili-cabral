@@ -55,8 +55,8 @@ export default function Header() {
         }
 
         .logo {
-          height: 36px;
-          max-width: 160px;
+          height: 48px;
+          max-width: 768px;
         }
 
         .menu-toggle {
