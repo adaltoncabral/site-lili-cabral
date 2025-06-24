@@ -114,7 +114,6 @@ export default function Home() {
         </section>
       </main>
 
-      {/* Marca d'água de construção */}
       <div style={{
         position: 'fixed',
         top: '50%',
