@@ -38,12 +38,12 @@ export default function Home() {
       <Header />
 
       <main style={{ marginTop: '80px', fontFamily: 'Montserrat, sans-serif' }}>
+
         {/* Carrossel de banners */}
         <div style={{
           position: 'relative',
           width: '100%',
-          height: 'auto',
-          aspectRatio: '16 / 9',
+          paddingTop: '56.25%', // 16:9 ratio
           overflow: 'hidden'
         }}>
           {banners.map((src, index) => (
@@ -63,6 +63,7 @@ export default function Home() {
             />
           ))}
         </div>
+
 
         {/* Ícones de categorias */}
         <section style={{
