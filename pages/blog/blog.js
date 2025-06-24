@@ -4,19 +4,22 @@ import Footer from '../../components/Footer';
 import FloatingButton from '../../components/FloatingButton';
 import Analytics from '../../components/Analytics';
 import Link from 'next/link';
+import Image from 'next/image';
 
-const posts = [
+const artigos = [
   {
-    title: '🎁 5 ideias de presente com pijamas para surpreender com carinho',
-    href: '/blog/presentes-com-pijamas',
-    date: 'Junho 2025',
-    summary: 'Descubra como transformar conforto em demonstração de afeto com sugestões criativas e acolhedoras.'
+    titulo: '5 ideias de presente com pijamas para surpreender com carinho',
+    imagem: '/blog/presentes-pijamas.jpg',
+    slug: 'presentes-com-pijamas',
+    descricao: 'Descubra como transformar um simples pijama em um gesto inesquecível.',
+    icone: '🎁'
   },
   {
-    title: '❄️ Como escolher o pijama ideal para o inverno',
-    href: '/blog/artigo-pijama-inverno',
-    date: 'Junho 2025',
-    summary: 'Dicas práticas para escolher o pijama ideal nos dias mais frios, sem abrir mão do estilo e bem-estar.'
+    titulo: 'Como escolher o pijama ideal para o inverno',
+    imagem: '/blog/pijama-inverno.jpg',
+    slug: 'artigo-pijama-inverno',
+    descricao: 'Veja dicas práticas para unir elegância e aconchego nos dias frios.',
+    icone: '❄️'
   }
 ];
 
@@ -36,38 +39,57 @@ export default function Blog() {
       <Header />
 
       <main style={{
-        maxWidth: '900px',
+        maxWidth: '1100px',
         margin: '80px auto 0',
         padding: '2rem',
-        fontFamily: 'sans-serif',
-        color: '#191919'
+        fontFamily: 'sans-serif'
       }}>
         <h1 style={{
           color: '#d693a8',
-          fontSize: '2.2rem',
-          marginBottom: '2.5rem',
+          fontSize: '2rem',
+          marginBottom: '2rem',
           textAlign: 'center'
         }}>
           Blog Lili Cabral
         </h1>
 
-        {posts.map((post, index) => (
-          <div key={index} style={{
-            marginBottom: '2rem',
-            padding: '1.5rem',
-            border: '1px solid #eee',
-            borderRadius: '8px',
-            backgroundColor: '#fafafa'
-          }}>
-            <h2 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>
-              <Link href={post.href} style={{ color: '#d693a8', textDecoration: 'none' }}>
-                {post.title}
-              </Link>
-            </h2>
-            <p style={{ fontSize: '0.9rem', color: '#8d7974', marginBottom: '0.5rem' }}>{post.date}</p>
-            <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>{post.summary}</p>
-          </div>
-        ))}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '2rem'
+        }}>
+          {artigos.map((artigo, i) => (
+            <Link key={i} href={`/blog/${artigo.slug}`} style={{ textDecoration: 'none' }}>
+              <div style={{
+                border: '1px solid #f0f0f0',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.05)',
+                transition: 'transform 0.3s ease',
+                backgroundColor: '#fff'
+              }}>
+                <div style={{ height: '180px', position: 'relative' }}>
+                  <Image
+                    src={artigo.imagem}
+                    alt={artigo.titulo}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+                <div style={{ padding: '1rem' }}>
+                  <h2 style={{
+                    fontSize: '1.1rem',
+                    color: '#d693a8',
+                    marginBottom: '0.5rem'
+                  }}>
+                    {artigo.icone} {artigo.titulo}
+                  </h2>
+                  <p style={{ fontSize: '0.9rem', color: '#555' }}>{artigo.descricao}</p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </main>
 
       <FloatingButton />
