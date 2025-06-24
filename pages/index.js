@@ -94,7 +94,7 @@ export default function Home() {
   position: 'fixed',
   top: '50%',
   left: '50%',
-  transform: 'translate(-50%, -50%) rotate(-30deg)',
+  transform: 'translate(-20%, -20%) rotate(-30deg)',
   fontSize: '3rem',
   fontWeight: 'bold',
   color: '#d693a8',
@@ -105,7 +105,7 @@ export default function Home() {
   userSelect: 'none',
   fontFamily: 'Montserrat, sans-serif'
 }}>
-  SITE EM CONSTRUÇÃO
+  EM CONSTRUÇÃO
 </div>
 
     
