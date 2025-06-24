@@ -39,76 +39,77 @@ export default function Home() {
 
       <main style={{ marginTop: '80px', fontFamily: 'Montserrat, sans-serif' }}>
 
-      {/* Carrossel de banners com comportamento distinto para desktop e mobile */}    
-      <div style={{
-        position: 'relative',
-        width: '100%',
-        margin: '0 auto',
-        overflow: 'hidden'
-      }}>
+        {/* Carrossel de banners com comportamento distinto */}
         <div style={{
-          display: 'block',
+          position: 'relative',
           width: '100%',
-          height: '0',
-          paddingTop: '90%', // 16:9 para desktop
-          position: 'relative'
-        }} className="banner-desktop">
-          {banners.map((src, index) => (
-            <Image
-              key={index}
-              src={src}
-              alt={`Banner ${index + 1}`}
-              fill
-              sizes="(min-width: 769px) 1280px"
-              style={{
-                objectFit: 'cover',
-                transition: 'opacity 0.5s ease',
-                opacity: index === current ? 1 : 0,
-                position: 'absolute'
-              }}
-              priority={index === 0}
-            />
-          ))}
-        </div>
-      
-        <div style={{
-          display: 'none',
-          width: '100%',
-          height: '0',
-          paddingTop: '75%', // 4:3 para mobile
-          position: 'relative'
-        }} className="banner-mobile">
-          {banners.map((src, index) => (
-            <Image
-              key={index}
-              src={src}
-              alt={`Banner ${index + 1}`}
-              fill
-              sizes="(max-width: 768px) 100vw"
-              style={{
-                objectFit: 'cover',
-                transition: 'opacity 0.5s ease',
-                opacity: index === current ? 1 : 0,
-                position: 'absolute'
-              }}
-              priority={index === 0}
-            />
-          ))}
-        </div>
-      
-        <style jsx>{`
-          @media (max-width: 768px) {
-            .banner-desktop { display: none; }
-            .banner-mobile { display: block; }
-          }
-          @media (min-width: 769px) {
-            .banner-desktop { display: block; }
-            .banner-mobile { display: none; }
-          }
-        `}</style>
-      </div>
+          margin: '0 auto',
+          overflow: 'hidden'
+        }}>
+          <div className="banner-desktop">
+            {banners.map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt={`Banner ${index + 1}`}
+                fill
+                sizes="(min-width: 769px) 1280px"
+                style={{
+                  objectFit: 'cover',
+                  transition: 'opacity 0.5s ease',
+                  opacity: index === current ? 1 : 0,
+                  position: 'absolute'
+                }}
+                priority={index === 0}
+              />
+            ))}
+          </div>
 
+          <div className="banner-mobile">
+            {banners.map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt={`Banner ${index + 1}`}
+                fill
+                sizes="(max-width: 768px) 100vw"
+                style={{
+                  objectFit: 'cover',
+                  transition: 'opacity 0.5s ease',
+                  opacity: index === current ? 1 : 0,
+                  position: 'absolute'
+                }}
+                priority={index === 0}
+              />
+            ))}
+          </div>
 
+          <style jsx>{`
+            .banner-desktop, .banner-mobile {
+              width: 100%;
+              height: 0;
+              position: relative;
+            }
+            @media (min-width: 769px) {
+              .banner-desktop {
+                display: block;
+                padding-top: 30%; /* Proporção customizada para desktop */
+              }
+              .banner-mobile {
+                display: none;
+              }
+            }
+            @media (max-width: 768px) {
+              .banner-desktop {
+                display: none;
+              }
+              .banner-mobile {
+                display: block;
+                padding-top: 75%; /* Proporção 4:3 para mobile */
+              }
+            }
+          `}</style>
+        </div>
 
         {/* Ícones de categorias */}
         <section style={{
@@ -138,37 +139,4 @@ export default function Home() {
               <p>Promoções</p>
             </div>
           </Link>
-          <Link href="/catalogo?p=kits">
-            <div>
-              <Image src="/icones/icon-especial.png" alt="Kits / Presentes" width={64} height={64} />
-              <p>Kits / Presentes</p>
-            </div>
-          </Link>
-        </section>
-      </main>
-
-      {/* Marca d'água temporária de site em construção */}
-      <div style={{
-        position: 'fixed',
-        top: '50%',
-        left: '10%',
-        transform: 'translate(-20%, -20%) rotate(-10deg)',
-        fontSize: '3rem',
-        fontWeight: 'bold',
-        color: '#8d7974',
-        opacity: 0.2,
-        pointerEvents: 'none',
-        zIndex: 10,
-        whiteSpace: 'nowrap',
-        userSelect: 'none',
-        fontFamily: 'Montserrat, sans-serif',
-        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
-      }}>
-        SITE EM CONSTRUÇÃO
-      </div>
-
-      <FloatingButton />
-      <Footer />
-    </>
-  );
-}
+          <Link href="/ca
