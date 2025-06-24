@@ -28,9 +28,9 @@ export default function Blog() {
     <>
       <Head>
         <title>Blog – Lili Cabral</title>
-        <meta name="description" content="Conteúdo sobre pijamas, presentes, conforto e autoestima feminina. Leia o blog da Lili Cabral." />
+        <meta name="description" content="Conteúdos sobre pijamas, presentes afetivos, conforto e autoestima feminina. Leia o blog da Lili Cabral." />
         <meta property="og:title" content="Blog – Lili Cabral" />
-        <meta property="og:description" content="Conteúdo sobre pijamas, presentes, conforto e autoestima feminina. Leia o blog da Lili Cabral." />
+        <meta property="og:description" content="Conteúdos sobre pijamas, presentes afetivos, conforto e autoestima feminina. Leia o blog da Lili Cabral." />
         <meta property="og:image" content="/blog-preview.jpg" />
         <meta property="og:type" content="website" />
       </Head>
@@ -42,13 +42,15 @@ export default function Blog() {
         maxWidth: '1100px',
         margin: '80px auto 0',
         padding: '2rem',
-        fontFamily: 'sans-serif'
+        fontFamily: 'Montserrat, sans-serif',
+        color: '#191919'
       }}>
         <h1 style={{
           color: '#d693a8',
           fontSize: '2rem',
           marginBottom: '2rem',
-          textAlign: 'center'
+          textAlign: 'center',
+          fontFamily: 'Modish, serif'
         }}>
           Blog Lili Cabral
         </h1>
@@ -60,33 +62,37 @@ export default function Blog() {
         }}>
           {artigos.map((artigo, i) => (
             <Link key={i} href={`/blog/${artigo.slug}`} passHref>
-              <a style={{ textDecoration: 'none', display: 'block' }}>
-                <div style={{
-                  border: '1px solid #f0f0f0',
+              <a
+                style={{
+                  textDecoration: 'none',
+                  border: '1px solid #eee',
                   borderRadius: '12px',
                   overflow: 'hidden',
                   boxShadow: '0 2px 6px rgba(0, 0, 0, 0.05)',
+                  backgroundColor: '#fff',
                   transition: 'transform 0.3s ease',
-                  backgroundColor: '#fff'
-                }}>
-                  <div style={{ height: '180px', position: 'relative' }}>
-                    <Image
-                      src={artigo.imagem}
-                      alt={artigo.titulo}
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </div>
-                  <div style={{ padding: '1rem' }}>
-                    <h2 style={{
-                      fontSize: '1.1rem',
-                      color: '#d693a8',
-                      marginBottom: '0.5rem'
-                    }}>
-                      {artigo.icone} {artigo.titulo}
-                    </h2>
-                    <p style={{ fontSize: '0.9rem', color: '#555' }}>{artigo.descricao}</p>
-                  </div>
+                  display: 'block'
+                }}
+              >
+                <div style={{ height: '180px', position: 'relative' }}>
+                  <Image
+                    src={artigo.imagem}
+                    alt={artigo.titulo}
+                    layout="fill"
+                    objectFit="cover"
+                    placeholder="blur"
+                    blurDataURL="/blog/placeholder.jpg"
+                  />
+                </div>
+                <div style={{ padding: '1rem' }}>
+                  <h2 style={{
+                    fontSize: '1.1rem',
+                    color: '#d693a8',
+                    marginBottom: '0.5rem'
+                  }}>
+                    {artigo.icone} {artigo.titulo}
+                  </h2>
+                  <p style={{ fontSize: '0.9rem', color: '#555' }}>{artigo.descricao}</p>
                 </div>
               </a>
             </Link>
@@ -98,4 +104,4 @@ export default function Blog() {
       <Footer />
     </>
   );
-                        }
+}
