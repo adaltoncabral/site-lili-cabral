@@ -54,7 +54,15 @@ export default function Home() {
         </div>
 
         {/* Ícones de categorias */}
-        <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1.5rem', padding: '2rem 1rem', maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
+        <section style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+          gap: '1.5rem',
+          padding: '2rem 1rem',
+          maxWidth: '1000px',
+          margin: '0 auto',
+          textAlign: 'center'
+        }}>
           <Link href="/catalogo?p=pijamas">
             <div>
               <Image src="/icones/icon-pijama.png" alt="Pijamas" width={64} height={64} />
@@ -73,10 +81,10 @@ export default function Home() {
               <p>Promoções</p>
             </div>
           </Link>
-          <Link href="/catalogo?p=colecoes">
+          <Link href="/catalogo?p=kits">
             <div>
-              <Image src="/icones/icon-especial.png" alt="Coleções Especiais" width={64} height={64} />
-              <p>Coleções Especiais</p>
+              <Image src="/icones/icon-especial.png" alt="Kits / Presentes" width={64} height={64} />
+              <p>Kits / Presentes</p>
             </div>
           </Link>
         </section>
