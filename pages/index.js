@@ -139,4 +139,37 @@ export default function Home() {
               <p>Promoções</p>
             </div>
           </Link>
-          <Link href="/ca
+          <Link href="/catalogo?p=kits">
+            <div>
+              <Image src="/icones/icon-especial.png" alt="Kits / Presentes" width={64} height={64} />
+              <p>Kits / Presentes</p>
+            </div>
+          </Link>
+        </section>
+      </main>
+
+      {/* Marca d'água de construção */}
+      <div style={{
+        position: 'fixed',
+        top: '50%',
+        left: '10%',
+        transform: 'translate(-20%, -20%) rotate(-10deg)',
+        fontSize: '3rem',
+        fontWeight: 'bold',
+        color: '#8d7974',
+        opacity: 0.2,
+        pointerEvents: 'none',
+        zIndex: 10,
+        whiteSpace: 'nowrap',
+        userSelect: 'none',
+        fontFamily: 'Montserrat, sans-serif',
+        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
+      }}>
+        SITE EM CONSTRUÇÃO
+      </div>
+
+      <FloatingButton />
+      <Footer />
+    </>
+  );
+}
