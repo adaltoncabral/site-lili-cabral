@@ -39,74 +39,75 @@ export default function Home() {
 
       <main style={{ marginTop: '80px', fontFamily: 'Montserrat, sans-serif' }}>
 
-  {/* Carrossel de banners com comportamento distinto para desktop e mobile */}    
-    <div style={{
-      position: 'relative',
-      width: '100%',
-      margin: '0 auto',
-      overflow: 'hidden'
-    }}>
+      {/* Carrossel de banners com comportamento distinto para desktop e mobile */}    
       <div style={{
-        display: 'block',
+        position: 'relative',
         width: '100%',
-        height: '0',
-        paddingTop: '56.25%', // 16:9 para desktop
-        position: 'relative'
-      }} className="banner-desktop">
-        {banners.map((src, index) => (
-          <Image
-            key={index}
-            src={src}
-            alt={`Banner ${index + 1}`}
-            fill
-            sizes="(min-width: 769px) 1280px"
-            style={{
-              objectFit: 'cover',
-              transition: 'opacity 0.5s ease',
-              opacity: index === current ? 1 : 0,
-              position: 'absolute'
-            }}
-            priority={index === 0}
-          />
-        ))}
+        margin: '0 auto',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          display: 'block',
+          width: '100%',
+          height: '0',
+          paddingTop: '56.25%', // 16:9 para desktop
+          position: 'relative'
+        }} className="banner-desktop">
+          {banners.map((src, index) => (
+            <Image
+              key={index}
+              src={src}
+              alt={`Banner ${index + 1}`}
+              fill
+              sizes="(min-width: 769px) 1280px"
+              style={{
+                objectFit: 'cover',
+                transition: 'opacity 0.5s ease',
+                opacity: index === current ? 1 : 0,
+                position: 'absolute'
+              }}
+              priority={index === 0}
+            />
+          ))}
+        </div>
+      
+        <div style={{
+          display: 'none',
+          width: '100%',
+          height: '0',
+          paddingTop: '75%', // 4:3 para mobile
+          position: 'relative'
+        }} className="banner-mobile">
+          {banners.map((src, index) => (
+            <Image
+              key={index}
+              src={src}
+              alt={`Banner ${index + 1}`}
+              fill
+              sizes="(max-width: 768px) 100vw"
+              style={{
+                objectFit: 'cover',
+                transition: 'opacity 0.5s ease',
+                opacity: index === current ? 1 : 0,
+                position: 'absolute'
+              }}
+              priority={index === 0}
+            />
+          ))}
+        </div>
+      
+        <style jsx>{`
+          @media (max-width: 768px) {
+            .banner-desktop { display: none; }
+            .banner-mobile { display: block; }
+          }
+          @media (min-width: 769px) {
+            .banner-desktop { display: block; }
+            .banner-mobile { display: none; }
+          }
+        `}</style>
       </div>
-    
-      <div style={{
-        display: 'none',
-        width: '100%',
-        height: '0',
-        paddingTop: '75%', // 4:3 para mobile
-        position: 'relative'
-      }} className="banner-mobile">
-        {banners.map((src, index) => (
-          <Image
-            key={index}
-            src={src}
-            alt={`Banner ${index + 1}`}
-            fill
-            sizes="(max-width: 768px) 100vw"
-            style={{
-              objectFit: 'cover',
-              transition: 'opacity 0.5s ease',
-              opacity: index === current ? 1 : 0,
-              position: 'absolute'
-            }}
-            priority={index === 0}
-          />
-        ))}
-      </div>
-    
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .banner-desktop { display: none; }
-          .banner-mobile { display: block; }
-        }
-        @media (min-width: 769px) {
-          .banner-desktop { display: block; }
-          .banner-mobile { display: none; }
-        }
-      `}</style>
-    </div>
+
 
 
         {/* Ícones de categorias */}
