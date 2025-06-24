@@ -50,7 +50,7 @@ export default function Home() {
           display: 'block',
           width: '100%',
           height: '0',
-          paddingTop: '56.25%', // 16:9 para desktop
+          paddingTop: '45%', // 16:9 para desktop
           position: 'relative'
         }} className="banner-desktop">
           {banners.map((src, index) => (
