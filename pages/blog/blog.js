@@ -5,14 +5,29 @@ import FloatingButton from '../../components/FloatingButton';
 import Analytics from '../../components/Analytics';
 import Link from 'next/link';
 
+const posts = [
+  {
+    title: '🎁 5 ideias de presente com pijamas para surpreender com carinho',
+    href: '/blog/presentes-com-pijamas',
+    date: 'Junho 2025',
+    summary: 'Descubra como transformar conforto em demonstração de afeto com sugestões criativas e acolhedoras.'
+  },
+  {
+    title: '❄️ Como escolher o pijama ideal para o inverno',
+    href: '/blog/artigo-pijama-inverno',
+    date: 'Junho 2025',
+    summary: 'Dicas práticas para escolher o pijama ideal nos dias mais frios, sem abrir mão do estilo e bem-estar.'
+  }
+];
+
 export default function Blog() {
   return (
     <>
       <Head>
         <title>Blog – Lili Cabral</title>
-        <meta name="description" content="Dicas sobre conforto, autoestima, presentes e pijamas. Leia o blog da Lili Cabral." />
+        <meta name="description" content="Conteúdo sobre pijamas, presentes, conforto e autoestima feminina. Leia o blog da Lili Cabral." />
         <meta property="og:title" content="Blog – Lili Cabral" />
-        <meta property="og:description" content="Dicas sobre conforto, autoestima, presentes e pijamas. Leia o blog da Lili Cabral." />
+        <meta property="og:description" content="Conteúdo sobre pijamas, presentes, conforto e autoestima feminina. Leia o blog da Lili Cabral." />
         <meta property="og:image" content="/blog-preview.jpg" />
         <meta property="og:type" content="website" />
       </Head>
@@ -21,7 +36,7 @@ export default function Blog() {
       <Header />
 
       <main style={{
-        maxWidth: '800px',
+        maxWidth: '900px',
         margin: '80px auto 0',
         padding: '2rem',
         fontFamily: 'sans-serif',
@@ -29,60 +44,30 @@ export default function Blog() {
       }}>
         <h1 style={{
           color: '#d693a8',
-          textAlign: 'center',
-          fontSize: '2rem',
-          marginBottom: '0.5rem'
+          fontSize: '2.2rem',
+          marginBottom: '2.5rem',
+          textAlign: 'center'
         }}>
           Blog Lili Cabral
         </h1>
 
-        <p style={{
-          textAlign: 'center',
-          color: '#555',
-          marginBottom: '2.5rem',
-          fontSize: '1rem'
-        }}>
-          Inspirações para presentear, descansar e se sentir bem. 💖
-        </p>
-
-        {/* Artigo 1 */}
-        <section style={{
-          background: '#fff',
-          border: '1px solid #eee',
-          borderRadius: '12px',
-          padding: '1.5rem',
-          marginBottom: '2rem',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-          transition: 'all 0.3s ease'
-        }}>
-          <Link href="/blog/presentes-com-pijamas" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <h3 style={{ color: '#d693a8', marginBottom: '0.75rem', fontSize: '1.25rem' }}>
-              🎁 5 ideias de presente com pijamas
-            </h3>
-            <p style={{ fontSize: '1rem', color: '#555' }}>
-              Dicas práticas para surpreender com carinho usando kits com pijamas confortáveis.
-            </p>
-          </Link>
-        </section>
-
-        {/* Artigo 2 - Exemplo adicional, se desejar expandir */}
-        <section style={{
-          background: '#fff',
-          border: '1px solid #eee',
-          borderRadius: '12px',
-          padding: '1.5rem',
-          marginBottom: '2rem',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
-        }}>
-          <Link href="/blog/artigo-pijama-inverno" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <h3 style={{ color: '#d693a8', marginBottom: '0.75rem', fontSize: '1.25rem' }}>
-              ❄️ Como escolher o pijama ideal para o inverno
-            </h3>
-            <p style={{ fontSize: '1rem', color: '#555' }}>
-              Descubra os tecidos, cortes e estilos perfeitos para noites frias com aconchego e charme.
-            </p>
-          </Link>
-        </section>
+        {posts.map((post, index) => (
+          <div key={index} style={{
+            marginBottom: '2rem',
+            padding: '1.5rem',
+            border: '1px solid #eee',
+            borderRadius: '8px',
+            backgroundColor: '#fafafa'
+          }}>
+            <h2 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>
+              <Link href={post.href} style={{ color: '#d693a8', textDecoration: 'none' }}>
+                {post.title}
+              </Link>
+            </h2>
+            <p style={{ fontSize: '0.9rem', color: '#8d7974', marginBottom: '0.5rem' }}>{post.date}</p>
+            <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>{post.summary}</p>
+          </div>
+        ))}
       </main>
 
       <FloatingButton />
