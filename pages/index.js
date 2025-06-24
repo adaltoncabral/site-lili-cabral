@@ -42,7 +42,7 @@ export default function Home() {
           <div className="banner-desktop">
             {banners.map((src, index) => (
               <Image
-                key={index}
+                key={`desktop-${index}`}
                 src={src}
                 alt={`Banner ${index + 1}`}
                 fill
@@ -61,7 +61,7 @@ export default function Home() {
           <div className="banner-mobile">
             {banners.map((src, index) => (
               <Image
-                key={index}
+                key={`mobile-${index}`}
                 src={src}
                 alt={`Banner ${index + 1}`}
                 fill
@@ -87,30 +87,10 @@ export default function Home() {
           margin: '0 auto',
           textAlign: 'center'
         }}>
-          <Link href="/catalogo?p=pijamas">
-            <div>
-              <Image src="/icones/icon-pijama.png" alt="Pijamas" width={64} height={64} />
-              <p>Pijamas</p>
-            </div>
-          </Link>
-          <Link href="/catalogo?p=lingeries">
-            <div>
-              <Image src="/icones/icon-lingerie.png" alt="Lingeries" width={64} height={64} />
-              <p>Lingeries</p>
-            </div>
-          </Link>
-          <Link href="/catalogo?p=promocoes">
-            <div>
-              <Image src="/icones/icon-promocao.png" alt="Promoções" width={64} height={64} />
-              <p>Promoções</p>
-            </div>
-          </Link>
-          <Link href="/catalogo?p=kits">
-            <div>
-              <Image src="/icones/icon-especial.png" alt="Kits / Presentes" width={64} height={64} />
-              <p>Kits / Presentes</p>
-            </div>
-          </Link>
+          <Link href="/catalogo?p=pijamas" legacyBehavior><a><div><Image src="/icones/icon-pijama.png" alt="Pijamas" width={64} height={64} /><p>Pijamas</p></div></a></Link>
+          <Link href="/catalogo?p=lingeries" legacyBehavior><a><div><Image src="/icones/icon-lingerie.png" alt="Lingeries" width={64} height={64} /><p>Lingeries</p></div></a></Link>
+          <Link href="/catalogo?p=promocoes" legacyBehavior><a><div><Image src="/icones/icon-promocao.png" alt="Promoções" width={64} height={64} /><p>Promoções</p></div></a></Link>
+          <Link href="/catalogo?p=kits" legacyBehavior><a><div><Image src="/icones/icon-especial.png" alt="Kits / Presentes" width={64} height={64} /><p>Kits / Presentes</p></div></a></Link>
         </section>
       </main>
 
