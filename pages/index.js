@@ -39,10 +39,10 @@ export default function Home() {
 
       <main style={{ marginTop: '80px', fontFamily: 'Montserrat, sans-serif' }}>
 
-        /* Carrossel de banners */
+      {* Carrossel de banners *}
         <div style={{
           position: 'relative',
-          width: '100%',
+          width: '60%',
           maxWidth: '1280px',
           margin: '0 auto',
           aspectRatio: '16 / 9',
