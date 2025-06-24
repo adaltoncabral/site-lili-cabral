@@ -38,14 +38,7 @@ export default function Home() {
       <Header />
 
       <main style={{ marginTop: '80px', fontFamily: 'Montserrat, sans-serif' }}>
-
-        {/* Carrossel de banners com comportamento distinto */}
-        <div style={{
-          position: 'relative',
-          width: '100%',
-          margin: '0 auto',
-          overflow: 'hidden'
-        }}>
+        <div className="carousel-container">
           <div className="banner-desktop">
             {banners.map((src, index) => (
               <Image
@@ -83,73 +76,43 @@ export default function Home() {
               />
             ))}
           </div>
-
-          <style jsx>{`
-            .banner-desktop, .banner-mobile {
-              width: 100%;
-              height: 0;
-              position: relative;
-            }
-            @media (min-width: 769px) {
-              .banner-desktop {
-                display: block;
-                padding-top: 30%; /* Proporção customizada para desktop */
-              }
-              .banner-mobile {
-                display: none;
-              }
-            }
-            @media (max-width: 768px) {
-              .banner-desktop {
-                display: none;
-              }
-              .banner-mobile {
-                display: block;
-                padding-top: 75%; /* Proporção 4:3 para mobile */
-              }
-            }
-          `}</style>
         </div>
 
-
-
-        {/* Ícones de categorias */}
-          <section style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-            gap: '1.5rem',
-            padding: '2rem 1rem',
-            maxWidth: '1000px',
-            margin: '0 auto',
-            textAlign: 'center'
-          }}>
-            <Link href="/catalogo?p=pijamas">
-              <div>
-                <Image src="/icones/icon-pijama.png" alt="Pijamas" width={64} height={64} />
-                <p>Pijamas</p>
-              </div>
-            </Link>
-            <Link href="/catalogo?p=lingeries">
-              <div>
-                <Image src="/icones/icon-lingerie.png" alt="Lingeries" width={64} height={64} />
-                <p>Lingeries</p>
-              </div>
-            </Link>
-            <Link href="/catalogo?p=promocoes">
-              <div>
-                <Image src="/icones/icon-promocao.png" alt="Promoções" width={64} height={64} />
-                <p>Promoções</p>
-              </div>
-            </Link>
-            <Link href="/catalogo?p=kits">
-              <div>
-                <Image src="/icones/icon-especial.png" alt="Kits / Presentes" width={64} height={64} />
-                <p>Kits / Presentes</p>
-              </div>
-            </Link>
-          </section>
-
-
+        <section style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+          gap: '1.5rem',
+          padding: '2rem 1rem',
+          maxWidth: '1000px',
+          margin: '0 auto',
+          textAlign: 'center'
+        }}>
+          <Link href="/catalogo?p=pijamas">
+            <div>
+              <Image src="/icones/icon-pijama.png" alt="Pijamas" width={64} height={64} />
+              <p>Pijamas</p>
+            </div>
+          </Link>
+          <Link href="/catalogo?p=lingeries">
+            <div>
+              <Image src="/icones/icon-lingerie.png" alt="Lingeries" width={64} height={64} />
+              <p>Lingeries</p>
+            </div>
+          </Link>
+          <Link href="/catalogo?p=promocoes">
+            <div>
+              <Image src="/icones/icon-promocao.png" alt="Promoções" width={64} height={64} />
+              <p>Promoções</p>
+            </div>
+          </Link>
+          <Link href="/catalogo?p=kits">
+            <div>
+              <Image src="/icones/icon-especial.png" alt="Kits / Presentes" width={64} height={64} />
+              <p>Kits / Presentes</p>
+            </div>
+          </Link>
+        </section>
+      </main>
 
       {/* Marca d'água de construção */}
       <div style={{
@@ -173,6 +136,39 @@ export default function Home() {
 
       <FloatingButton />
       <Footer />
+
+      <style jsx>{`
+        .carousel-container {
+          position: relative;
+          width: 100%;
+          margin: 0 auto;
+          overflow: hidden;
+        }
+        .banner-desktop,
+        .banner-mobile {
+          width: 100%;
+          height: 0;
+          position: relative;
+        }
+        @media (min-width: 769px) {
+          .banner-desktop {
+            display: block;
+            padding-top: 30%;
+          }
+          .banner-mobile {
+            display: none;
+          }
+        }
+        @media (max-width: 768px) {
+          .banner-desktop {
+            display: none;
+          }
+          .banner-mobile {
+            display: block;
+            padding-top: 75%;
+          }
+        }
+      `}</style>
     </>
   );
 }
