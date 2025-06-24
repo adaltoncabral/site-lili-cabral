@@ -59,34 +59,36 @@ export default function Blog() {
           gap: '2rem'
         }}>
           {artigos.map((artigo, i) => (
-            <Link key={i} href={`/blog/${artigo.slug}`} style={{ textDecoration: 'none' }}>
-              <div style={{
-                border: '1px solid #f0f0f0',
-                borderRadius: '12px',
-                overflow: 'hidden',
-                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.05)',
-                transition: 'transform 0.3s ease',
-                backgroundColor: '#fff'
-              }}>
-                <div style={{ height: '180px', position: 'relative' }}>
-                  <Image
-                    src={artigo.imagem}
-                    alt={artigo.titulo}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                  />
+            <Link key={i} href={`/blog/${artigo.slug}`} passHref>
+              <a style={{ textDecoration: 'none', display: 'block' }}>
+                <div style={{
+                  border: '1px solid #f0f0f0',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  boxShadow: '0 2px 6px rgba(0, 0, 0, 0.05)',
+                  transition: 'transform 0.3s ease',
+                  backgroundColor: '#fff'
+                }}>
+                  <div style={{ height: '180px', position: 'relative' }}>
+                    <Image
+                      src={artigo.imagem}
+                      alt={artigo.titulo}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </div>
+                  <div style={{ padding: '1rem' }}>
+                    <h2 style={{
+                      fontSize: '1.1rem',
+                      color: '#d693a8',
+                      marginBottom: '0.5rem'
+                    }}>
+                      {artigo.icone} {artigo.titulo}
+                    </h2>
+                    <p style={{ fontSize: '0.9rem', color: '#555' }}>{artigo.descricao}</p>
+                  </div>
                 </div>
-                <div style={{ padding: '1rem' }}>
-                  <h2 style={{
-                    fontSize: '1.1rem',
-                    color: '#d693a8',
-                    marginBottom: '0.5rem'
-                  }}>
-                    {artigo.icone} {artigo.titulo}
-                  </h2>
-                  <p style={{ fontSize: '0.9rem', color: '#555' }}>{artigo.descricao}</p>
-                </div>
-              </div>
+              </a>
             </Link>
           ))}
         </div>
@@ -96,4 +98,4 @@ export default function Blog() {
       <Footer />
     </>
   );
-}
+                        }
