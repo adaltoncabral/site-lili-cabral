@@ -8,9 +8,9 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const banners = [
-  '/banners/banner1.jpg',
-  '/banners/banner2.jpg',
-  '/banners/banner3.jpg'
+  '/banners/banner1.webp',
+  '/banners/banner2.webp',
+  '/banners/banner3.webp'
 ];
 
 export default function Home() {
@@ -28,20 +28,31 @@ export default function Home() {
       <Head>
         <title>Lili Cabral – Conforto que Presenteia</title>
         <meta name="description" content="Pijamas, lingeries e presentes especiais para quem você ama – ou para você mesma." />
+        <meta property="og:title" content="Lili Cabral – Conforto que Presenteia" />
+        <meta property="og:description" content="Pijamas, lingeries e presentes especiais para quem você ama – ou para você mesma." />
+        <meta property="og:image" content="/banners/banner1.webp" />
+        <meta property="og:type" content="website" />
       </Head>
 
       <Analytics />
       <Header />
 
-      <main style={{ marginTop: '80px', fontFamily: 'sans-serif' }}>
+      <main style={{ marginTop: '80px', fontFamily: 'Montserrat, sans-serif' }}>
         {/* Carrossel de banners */}
-        <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', overflow: 'hidden' }}>
+        <div style={{
+          position: 'relative',
+          width: '100%',
+          height: 'auto',
+          aspectRatio: '16 / 9',
+          overflow: 'hidden'
+        }}>
           {banners.map((src, index) => (
             <Image
               key={index}
               src={src}
               alt={`Banner ${index + 1}`}
               fill
+              sizes="100vw"
               style={{
                 objectFit: 'cover',
                 transition: 'opacity 0.5s ease',
@@ -90,28 +101,28 @@ export default function Home() {
         </section>
       </main>
 
-<div style={{
-  position: 'fixed',
-  top: '50%',
-  left: '30%',
-  transform: 'translate(-20%, -20%) rotate(-10deg)',
-  fontSize: '3rem',
-  fontWeight: 'bold',
-  color: '#8d7974',
-  opacity: 0.15,
-  pointerEvents: 'none',
-  zIndex: 0,
-  whiteSpace: 'nowrap',
-  userSelect: 'none',
-  fontFamily: 'Montserrat, sans-serif'
-}}>
-  EM CONSTRUÇÃO
-</div>
+      {/* Marca d'água temporária de site em construção */}
+      <div style={{
+        position: 'fixed',
+        top: '50%',
+        left: '30%',
+        transform: 'translate(-20%, -20%) rotate(-10deg)',
+        fontSize: '3rem',
+        fontWeight: 'bold',
+        color: '#8d7974',
+        opacity: 0.2,
+        pointerEvents: 'none',
+        zIndex: 10,
+        whiteSpace: 'nowrap',
+        userSelect: 'none',
+        fontFamily: 'Montserrat, sans-serif',
+        textShadow: '1px 1px 2px rgba(0, 0, 0, 0.1)'
+      }}>
+        SITE EM CONSTRUÇÃO
+      </div>
 
-    
-          
       <FloatingButton />
       <Footer />
     </>
   );
-}
+          }
