@@ -39,11 +39,13 @@ export default function Home() {
 
       <main style={{ marginTop: '80px', fontFamily: 'Montserrat, sans-serif' }}>
 
-        {/* Carrossel de banners */}
+        /* Carrossel de banners */
         <div style={{
           position: 'relative',
           width: '100%',
-          paddingTop: '56.25%', // 16:9 ratio
+          maxWidth: '1280px',
+          margin: '0 auto',
+          aspectRatio: '16 / 9',
           overflow: 'hidden'
         }}>
           {banners.map((src, index) => (
@@ -52,7 +54,7 @@ export default function Home() {
               src={src}
               alt={`Banner ${index + 1}`}
               fill
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw, 1280px"
               style={{
                 objectFit: 'cover',
                 transition: 'opacity 0.5s ease',
