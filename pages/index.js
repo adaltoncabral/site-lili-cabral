@@ -111,6 +111,8 @@ export default function Home() {
           `}</style>
         </div>
 
+
+
         {/* Ícones de categorias */}
         <section style={{
           display: 'grid',
@@ -146,7 +148,7 @@ export default function Home() {
             </div>
           </Link>
         </section>
-      </main>
+
 
       {/* Marca d'água de construção */}
       <div style={{
