@@ -108,7 +108,7 @@ export default function Home() {
       <div style={{
         position: 'fixed',
         top: '50%',
-        left: '30%',
+        left: '10%',
         transform: 'translate(-20%, -20%) rotate(-10deg)',
         fontSize: '3rem',
         fontWeight: 'bold',
