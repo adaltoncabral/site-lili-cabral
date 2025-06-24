@@ -12,7 +12,7 @@ export default function ArtigoPijamaInverno() {
         <meta name="description" content="Dicas práticas para escolher o pijama ideal nos dias frios. Descubra tecidos, modelos e cuidados para noites mais confortáveis e estilosas." />
         <meta property="og:title" content="Como escolher o pijama ideal para o inverno – Blog Lili Cabral" />
         <meta property="og:description" content="Dicas práticas para escolher o pijama ideal nos dias frios. Descubra tecidos, modelos e cuidados para noites mais confortáveis e estilosas." />
-        <meta property="og:image" content="/banner-lili.jpg" />
+        <meta property="og:image" content="/banners/blog-pijama-inverno.jpg" />
         <meta property="og:type" content="article" />
       </Head>
 
@@ -23,43 +23,54 @@ export default function ArtigoPijamaInverno() {
         margin: '80px auto 0',
         padding: '2rem',
         maxWidth: '800px',
-        fontFamily: 'sans-serif',
+        fontFamily: 'Montserrat, sans-serif',
         lineHeight: '1.7',
-        color: '#333'
+        color: '#191919'
       }}>
-        <h1 style={{ color: '#d693a8', marginBottom: '1rem', fontSize: '1.8rem' }}>
+        <h1 style={{
+          color: '#d693a8',
+          marginBottom: '1rem',
+          fontSize: '2rem',
+          fontFamily: 'Modish, serif'
+        }}>
           Como escolher o pijama ideal para o inverno
         </h1>
-        <p style={{ fontStyle: 'italic', color: '#777', fontSize: '0.95rem' }}>
+
+        <p style={{
+          fontStyle: 'italic',
+          color: '#8d7974',
+          fontSize: '0.9rem',
+          marginBottom: '2rem'
+        }}>
           Publicado por Lili Cabral – {new Date().getFullYear()}
         </p>
 
         <p>
-          Com a chegada do frio, é essencial escolher pijamas que ofereçam não apenas conforto térmico,
-          mas também aquele toque de aconchego que faz toda a diferença nas noites de descanso.
+          Com a chegada do frio, escolher o pijama certo vai além da estética: é uma decisão que envolve conforto, saúde e bem-estar. A seguir, veja o que considerar para acertar na escolha.
         </p>
 
-        <h2 style={{ color: '#d693a8', marginTop: '2rem' }}>1. Prefira tecidos mais quentinhos</h2>
+        <h2 style={{ color: '#d693a8', marginTop: '2rem' }}>1. Tecidos ideais para noites frias</h2>
         <p>
-          Pijamas de soft, fleece e flanela são os favoritos do inverno. Eles aquecem bem e trazem uma sensação deliciosa
-          de abraço no corpo. Prefira materiais respiráveis para evitar suor e desconforto.
+          Aposte em tecidos como fleece, flanela e soft. Eles proporcionam calor, aconchego e são ótimos para manter a temperatura do corpo. Dê preferência a materiais respiráveis para evitar suor e desconforto térmico.
         </p>
 
-        <h2 style={{ color: '#d693a8', marginTop: '2rem' }}>2. Modelagem também importa</h2>
+        <h2 style={{ color: '#d693a8', marginTop: '2rem' }}>2. Modelagem que valoriza e conforta</h2>
         <p>
-          Prefira calças mais longas, mangas compridas e ajuste confortável na cintura. Evite elásticos muito apertados
-          que incomodam durante o sono. Conjuntos com gola alta são ideais para noites mais frias.
+          Escolha pijamas com mangas e calças longas, cintura ajustável e cortes que não apertam. Peças com gola alta ou punhos nas extremidades ajudam a reter o calor e tornam a experiência mais acolhedora.
         </p>
 
-        <h2 style={{ color: '#d693a8', marginTop: '2rem' }}>3. Escolha com carinho e estilo</h2>
+        <h2 style={{ color: '#d693a8', marginTop: '2rem' }}>3. Estilo também aquece a alma</h2>
         <p>
-          Além da funcionalidade, escolha cores e estampas que combinem com seu estilo. O pijama também é autocuidado,
-          e vestir algo bonito faz bem para o corpo e para a mente.
+          Cores suaves, estampas delicadas e combinações que refletem sua personalidade transformam o ato de dormir em um ritual de autocuidado. Um pijama bonito eleva a autoestima e faz diferença na sua rotina.
         </p>
 
-        <p style={{ marginTop: '2rem', fontWeight: 'bold', color: '#555' }}>
-          Que tal renovar seu pijama neste inverno? Confira os modelos disponíveis no nosso{' '}
-          <a href="/catalogo" style={{ color: '#d693a8', textDecoration: 'none' }}>catálogo</a> e peça direto pelo WhatsApp!
+        <p style={{ marginTop: '2rem', fontWeight: 500, color: '#8d7974' }}>
+          Que tal renovar seu pijama neste inverno? Conheça os modelos disponíveis no nosso{' '}
+          <a href="/catalogo" style={{
+            color: '#d693a8',
+            textDecoration: 'underline'
+          }}>catálogo</a>{' '}
+          e peça direto pelo WhatsApp com um clique!
         </p>
       </main>
 
