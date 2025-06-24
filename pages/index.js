@@ -90,6 +90,26 @@ export default function Home() {
         </section>
       </main>
 
+<div style={{
+  position: 'fixed',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%) rotate(-30deg)',
+  fontSize: '3rem',
+  fontWeight: 'bold',
+  color: '#d693a8',
+  opacity: 0.07,
+  pointerEvents: 'none',
+  zIndex: 0,
+  whiteSpace: 'nowrap',
+  userSelect: 'none',
+  fontFamily: 'Montserrat, sans-serif'
+}}>
+  SITE EM CONSTRUÇÃO
+</div>
+
+    
+          
       <FloatingButton />
       <Footer />
     </>
