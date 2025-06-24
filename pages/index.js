@@ -3,9 +3,11 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FloatingButton from '../components/FloatingButton';
 import Analytics from '../components/Analytics';
-import BannerCarousel from '../components/BannerCarousel';
-import CategoryIcons from '../components/CategoryIcons';
-import WatermarkConstrucao from '../components/WatermarkConstrucao';
+import dynamic from 'next/dynamic';
+
+const BannerCarousel = dynamic(() => import('../components/BannerCarousel'), { ssr: false });
+const CategoryIcons = dynamic(() => import('../components/CategoryIcons'), { ssr: false });
+const WatermarkConstrucao = dynamic(() => import('../components/WatermarkConstrucao'), { ssr: false });
 
 export default function Home() {
   return (
