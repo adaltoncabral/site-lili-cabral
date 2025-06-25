@@ -7,6 +7,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
+<Head>
+  <link rel="icon" href="/favicon.ico" />
+</Head>
+
 const banners = [
   '/banners/banner1.webp',
   '/banners/banner2.webp',
