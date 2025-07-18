@@ -166,42 +166,49 @@ export default function LiliCabralHomepage() {
 
       {/* Hero Banner */}
       <section className="relative overflow-hidden">
-        <div className="relative h-96 md:h-[500px]">
+        <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px]">
           {banners.map((banner, index) => (
             <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ${index === current ? 'opacity-100' : 'opacity-0'}`}
             >
-              <Image src={banner} alt={`Banner ${index + 1}`} fill className="object-cover" />
+              <Image 
+                src={banner} 
+                alt={`Banner ${index + 1}`} 
+                fill 
+                className="object-cover object-center"
+                priority={index === 0}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+              />
             </div>
           ))}
 
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-            <div className="text-center text-white px-4">
-              <h2 className="text-4xl md:text-6xl font-bold mb-4" style={{ fontFamily: 'serif' }}>
+          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <div className="text-center text-white px-4 max-w-4xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-2 sm:mb-4">
                 Conforto que Presenteia
               </h2>
-              <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 lg:mb-8">
                 Pijamas, lingeries e presentes especiais para quem você ama – ou para você mesma
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <a
                   href={`https://wa.me/${whatsappNumber}?text=Olá! Gostaria de ver o catálogo da Lili Cabral`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                  className="bg-green-500 hover:bg-green-600 text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
                 >
-                  <MessageCircleIcon className="w-6 h-6" />
+                  <MessageCircleIcon className="w-4 h-4 sm:w-5 h-5 lg:w-6 lg:h-6" />
                   <span>Ver Catálogo</span>
                 </a>
                 <a
                   href={`https://instagram.com/${instagramHandle}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
                 >
-                  <InstagramIcon className="w-6 h-6" />
+                  <InstagramIcon className="w-4 h-4 sm:w-5 h-5 lg:w-6 lg:h-6" />
                   <span>Seguir no Instagram</span>
                 </a>
               </div>
@@ -211,24 +218,24 @@ export default function LiliCabralHomepage() {
           {/* Controles */}
           <button 
             onClick={prevSlide} 
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 transition-all duration-300 shadow-lg"
+            className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-1 sm:p-2 transition-all duration-300 shadow-lg"
           >
-            <ChevronLeftIcon className="w-6 h-6 text-pink-800" />
+            <ChevronLeftIcon className="w-4 h-4 sm:w-5 h-5 lg:w-6 lg:h-6 text-pink-800" />
           </button>
           <button 
             onClick={nextSlide} 
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 transition-all duration-300 shadow-lg"
+            className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-1 sm:p-2 transition-all duration-300 shadow-lg"
           >
-            <ChevronRightIcon className="w-6 h-6 text-pink-800" />
+            <ChevronRightIcon className="w-4 h-4 sm:w-5 h-5 lg:w-6 lg:h-6 text-pink-800" />
           </button>
 
           {/* Indicadores */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
             {banners.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrent(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                   index === current ? 'bg-white' : 'bg-white bg-opacity-50'
                 }`}
               />
@@ -238,41 +245,41 @@ export default function LiliCabralHomepage() {
       </section>
 
       {/* Categorias */}
-      <section className="py-16 bg-white">
+      <section className="py-8 sm:py-12 lg:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-pink-800 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-pink-800 mb-2 sm:mb-4">
               Nossas Categorias
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
               Explore nossa seleção cuidadosa de produtos para o seu conforto e bem-estar
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {categories.map((category, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-pink-100"
+                className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-pink-100"
               >
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <Image
                     src={category.icon}
                     alt={category.title}
-                    width={60}
-                    height={60}
-                    className="mx-auto"
+                    width={40}
+                    height={40}
+                    className="mx-auto sm:w-[50px] sm:h-[50px] lg:w-[60px] lg:h-[60px]"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-pink-800 mb-2">{category.title}</h3>
-                <p className="text-gray-600 mb-4">{category.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold text-pink-800 mb-2">{category.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">{category.description}</p>
                 <a
                   href={`https://wa.me/${whatsappNumber}?text=Olá! Gostaria de ver produtos da categoria ${category.title}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transition-all duration-300"
+                  className="inline-flex items-center space-x-2 bg-pink-500 hover:bg-pink-600 text-white px-3 sm:px-4 py-2 rounded-full transition-all duration-300 text-sm sm:text-base"
                 >
-                  <ShoppingBagIcon className="w-4 h-4" />
+                  <ShoppingBagIcon className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>Ver Produtos</span>
                 </a>
               </div>
@@ -396,10 +403,10 @@ export default function LiliCabralHomepage() {
         href={`https://wa.me/${whatsappNumber}?text=Olá! Gostaria de mais informações sobre os produtos da Lili Cabral`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-green-500 hover:bg-green-600 text-white p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
       >
-        <MessageCircleIcon className="w-6 h-6" />
+        <MessageCircleIcon className="w-5 h-5 sm:w-6 sm:h-6" />
       </a>
     </div>
   );
-  }
+    }
