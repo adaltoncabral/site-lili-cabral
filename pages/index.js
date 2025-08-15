@@ -9,20 +9,17 @@ import FloatingButton from '../components/FloatingButton';
 import Analytics from '../components/Analytics';
 import { Montserrat } from 'next/font/google';
 
-// Tipografia institucional (secundária no manual)
+// Tipografia (secundária no manual) — simples e leve para web
 const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
 });
 
-// Constantes de marca e utilidades
+// ---- Constantes de marca / utilidades
 const BRAND = 'Lili Cabral';
 const SITE_URL = 'https://lilicabral.com.br';
-const OG_IMAGE = '/og.jpg'; // ajuste para a imagem real de compartilhamento
+const OG_IMAGE = '/og.jpg'; // defina uma imagem 1200x630
 const WHATSAPP_NUMBER = '5533984142006';
-
-const waLink = (text, utm = 'home') =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}&utm_source=${utm}&utm_medium=whatsapp&utm_campaign=site`;
 
 const Cores = {
   rosa: '#d693a8',
@@ -33,12 +30,15 @@ const Cores = {
   marromSuave: '#8d7974',
 };
 
-// Dados estruturados (facilitar manutenção)
+const waLink = (text, utm = 'home') =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}&utm_source=${utm}&utm_medium=whatsapp&utm_campaign=site`;
+
+// ---- Dados estruturados (fácil manutenção)
 const categorias = [
-  { label: 'Pijamas', img: '/cat-pijamas.jpg', alt: 'Categoria Pijamas' },
-  { label: 'Lingeries', img: '/cat-lingeries.jpg', alt: 'Categoria Lingeries' },
-  { label: 'Promoções', img: '/cat-promocoes.jpg', alt: 'Categoria Promoções' },
-  { label: 'Coleções Especiais', img: '/cat-especiais.jpg', alt: 'Categoria Coleções Especiais' },
+  { label: 'Pijamas', img: '/cat-pijamas.jpg', alt: 'Categoria Pijamas', href: '/catalogo' },
+  { label: 'Lingeries', img: '/cat-lingeries.jpg', alt: 'Categoria Lingeries', href: '/catalogo' },
+  { label: 'Promoções', img: '/cat-promocoes.jpg', alt: 'Categoria Promoções', href: '/catalogo' },
+  { label: 'Coleções Especiais', img: '/cat-especiais.jpg', alt: 'Categoria Coleções Especiais', href: '/catalogo' },
 ];
 
 const produtos = [
@@ -46,7 +46,8 @@ const produtos = [
     nome: 'Kit Pijamas Casal',
     descricao: 'Conforto e carinho para dormir juntinhos.',
     img: '/Kit_Pijamas_Casal.png',
-    alt: 'Kit de pijamas para casal nas cores coordenadas',
+    alt: 'Kit de pijamas para casal em cores coordenadas',
+    href: '/produtos/kit-pijamas-casal', // rota existente no site publicado
     mensagemZap: 'Olá! Vi o Kit Pijamas Casal e quero saber mais.',
   },
   {
@@ -54,6 +55,7 @@ const produtos = [
     descricao: 'Delicado e elegante com toque especial.',
     img: '/Conjunto_Renda_Rose.png',
     alt: 'Conjunto de lingerie em renda tom rosé',
+    href: '/catalogo', // ajuste quando a página do produto existir
     mensagemZap: 'Olá! Vi o Conjunto Renda Rosé e quero saber mais.',
   },
 ];
@@ -68,6 +70,7 @@ export default function Home() {
           content="Pijamas, lingeries e kits presenteáveis com conforto e estilo. Encontre delicadeza e autoestima na Lili Cabral."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href={SITE_URL} />
 
         {/* Open Graph / Twitter */}
         <meta property="og:title" content={`${BRAND} – Pijamas e Lingeries`} />
@@ -79,20 +82,32 @@ export default function Home() {
         <meta property="og:url" content={SITE_URL} />
         <meta property="og:image" content={OG_IMAGE} />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href={SITE_URL} />
 
-        {/* JSON-LD básico (marca) */}
+        {/* JSON-LD Organization + Website (com SearchAction simples via WhatsApp) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: BRAND,
-              url: SITE_URL,
-              sameAs: ['https://www.instagram.com/lili.cabral_/'],
-              logo: `${SITE_URL}/logo.png`,
-            }),
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Organization',
+                name: BRAND,
+                url: SITE_URL,
+                sameAs: ['https://www.instagram.com/lili.cabral_/'],
+                logo: `${SITE_URL}/logo.png`,
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                name: BRAND,
+                url: SITE_URL,
+                potentialAction: {
+                  '@type': 'SearchAction',
+                  target: `https://wa.me/${WHATSAPP_NUMBER}?text=Olá! Quero encontrar: {search_term_string}`,
+                  'query-input': 'required name=search_term_string',
+                },
+              },
+            ]),
           }}
         />
       </Head>
@@ -100,22 +115,13 @@ export default function Home() {
       <Analytics />
       <Header />
 
-      <main
-        className={montserrat.className}
-        style={{
-          marginTop: '80px',
-          color: Cores.grafite,
-        }}
-      >
+      <main className={montserrat.className} style={{ marginTop: '80px', color: Cores.grafite }}>
         {/* Banner Principal */}
-        <section
-          aria-labelledby="banner-title"
-          style={{ textAlign: 'center', padding: '3rem 1rem', background: Cores.areia }}
-        >
+        <section aria-labelledby="banner-title" style={{ textAlign: 'center', padding: '3rem 1rem', background: Cores.areia }}>
           <div style={{ maxWidth: 1200, margin: '0 auto' }}>
             <Image
               src="/banner-home.jpg"
-              alt="Banner principal da Lili Cabral com destaque para pijamas e lingeries"
+              alt="Banner principal da Lili Cabral com pijamas e lingeries"
               width={1600}
               height={600}
               priority
@@ -135,7 +141,6 @@ export default function Home() {
               <Link href="/catalogo" legacyBehavior>
                 <a style={estilos.botaoPrimario} aria-label="Ver catálogo de produtos">Ver Catálogo</a>
               </Link>
-
               <a
                 href={waLink('Olá! Quero ver as novidades da Lili Cabral.', 'banner')}
                 target="_blank"
@@ -165,7 +170,7 @@ export default function Home() {
               }}
             >
               {categorias.map((cat) => (
-                <Link key={cat.label} href="/catalogo" legacyBehavior>
+                <Link key={cat.label} href={cat.href} legacyBehavior>
                   <a style={estilos.categoria} aria-label={`Ver ${cat.label}`}>
                     <Image
                       src={cat.img}
@@ -183,7 +188,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Destaques */}
+        {/* Destaques (com link para página do produto quando existir) */}
         <section aria-labelledby="destaques-title" style={{ padding: '3rem 1rem', background: Cores.destaque }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <h2 id="destaques-title" style={{ textAlign: 'center', color: '#fff', fontSize: '1.6rem' }}>
@@ -202,14 +207,18 @@ export default function Home() {
             >
               {produtos.map((p) => (
                 <div key={p.nome} style={estilos.cardProduto}>
-                  <Image
-                    src={p.img}
-                    alt={p.alt}
-                    width={600}
-                    height={600}
-                    style={{ width: '100%', height: 'auto', borderRadius: 8 }}
-                    sizes="(max-width: 768px) 90vw, 280px"
-                  />
+                  <Link href={p.href} legacyBehavior>
+                    <a aria-label={`Abrir página do produto ${p.nome}`}>
+                      <Image
+                        src={p.img}
+                        alt={p.alt}
+                        width={600}
+                        height={600}
+                        style={{ width: '100%', height: 'auto', borderRadius: 8 }}
+                        sizes="(max-width: 768px) 90vw, 280px"
+                      />
+                    </a>
+                  </Link>
                   <h3 style={{ marginTop: 12, fontSize: '1.1rem' }}>{p.nome}</h3>
                   <p style={{ color: '#555', minHeight: 40 }}>{p.descricao}</p>
                   <a
@@ -234,7 +243,7 @@ export default function Home() {
   );
 }
 
-// Estilos padronizados
+// ---- Estilos padronizados
 const estilos = {
   botaoPrimario: {
     backgroundColor: Cores.rosa,
