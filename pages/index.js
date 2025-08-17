@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 import FloatingButton from '../components/FloatingButton';
 import Analytics from '../components/Analytics';
 import { Montserrat } from 'next/font/google';
+import { MessageCircle as WhatsIcon, ArrowRight } from 'lucide-react';
 
 // Tipografia institucional (secundária do manual)
 const montserrat = Montserrat({
@@ -33,7 +34,7 @@ const Colors = {
 const waLink = (text, utm = 'home') =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}&utm_source=${utm}&utm_medium=whatsapp&utm_campaign=site`;
 
-// --- Dados estruturados (facilita manutenção)
+// --- Dados estruturados (facilita manutenção e evita “string solta” no JSX)
 const categorias = [
   { label: 'Pijamas', img: '/cat-pijamas.jpg', alt: 'Categoria Pijamas', href: '/catalogo' },
   { label: 'Lingeries', img: '/cat-lingeries.jpg', alt: 'Categoria Lingeries', href: '/catalogo' },
@@ -47,7 +48,7 @@ const produtosDestaque = [
     descricao: 'Conforto e carinho para dormir juntinhos.',
     img: '/Kit_Pijamas_Casal.png',
     alt: 'Kit de pijamas para casal em cores coordenadas',
-    href: '/produtos/kit-pijamas-casal', // ajuste para a rota real, se necessário
+    href: '/produtos/kit-pijamas-casal', // ajuste conforme sua rota real
     mensagemZap: 'Olá! Vi o Kit Pijamas Casal e quero saber mais.',
   },
   {
@@ -74,7 +75,10 @@ export default function Home() {
 
         {/* Open Graph / Twitter */}
         <meta property="og:title" content={`${BRAND} – Pijamas e Lingeries`} />
-        <meta property="og:description" content="Conforto, delicadeza e autoestima para o seu descanso. Compre pelo WhatsApp." />
+        <meta
+          property="og:description"
+          content="Conforto, delicadeza e autoestima para o seu descanso. Compre pelo WhatsApp."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={SITE_URL} />
         <meta property="og:image" content={OG_IMAGE} />
@@ -113,7 +117,7 @@ export default function Home() {
       <Header />
 
       <main className={montserrat.className} style={{ marginTop: 80, color: Colors.grafite }}>
-        {/* Banner Principal */}
+        {/* Banner */}
         <section aria-labelledby="banner-title" style={{ textAlign: 'center', padding: '3rem 1rem', background: Colors.areia }}>
           <div style={{ maxWidth: 1200, margin: '0 auto' }}>
             <Image
@@ -125,25 +129,30 @@ export default function Home() {
               sizes="(max-width: 768px) 100vw, 1200px"
               style={{ width: '100%', height: 'auto', borderRadius: 12, boxShadow: '0 4px 12px rgba(0,0,0,0.08)' }}
             />
+
             <h1 id="banner-title" style={{ color: Colors.rosa, marginTop: '1.5rem', fontSize: '1.9rem', lineHeight: 1.2 }}>
               Conforto, delicadeza e autoestima para seu descanso
             </h1>
+
             <p style={{ maxWidth: 720, margin: '1rem auto' }}>
               Pijamas, lingeries e kits presenteáveis pensados para transformar sua rotina em um momento especial.
             </p>
 
             <div style={{ marginTop: '2rem', display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/catalogo" legacyBehavior>
-                <a style={styles.botaoPrimario} aria-label="Ver catálogo de produtos">Ver Catálogo</a>
+                <a style={styles.botaoPrimario} aria-label="Ver catálogo de produtos">
+                  Ver Catálogo <ArrowRight size={18} style={{ marginLeft: 8 }} />
+                </a>
               </Link>
+
               <a
                 href={waLink('Olá! Quero ver as novidades da Lili Cabral.', 'banner')}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={styles.botaoZap}
+                style={{ ...styles.botaoZap, display: 'inline-flex', alignItems: 'center', gap: 8 }}
                 aria-label="Falar no WhatsApp"
               >
-                Falar no WhatsApp
+                <WhatsIcon size={18} /> Falar no WhatsApp
               </a>
             </div>
           </div>
@@ -210,17 +219,26 @@ export default function Home() {
                       />
                     </a>
                   </Link>
+
                   <h3 style={{ marginTop: 12, fontSize: '1.1rem' }}>{p.nome}</h3>
                   <p style={{ color: '#555', minHeight: 40 }}>{p.descricao}</p>
-                  <a
-                    href={waLink(p.mensagemZap, 'destaques')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={styles.botaoZap}
-                    aria-label={`Falar no WhatsApp sobre ${p.nome}`}
-                  >
-                    Falar no WhatsApp
-                  </a>
+
+                  <div style={{ display: 'flex', gap: 8, justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <Link href={p.href} legacyBehavior>
+                      <a style={styles.botaoSecundario} aria-label={`Ver detalhes de ${p.nome}`}>
+                        Ver detalhes
+                      </a>
+                    </Link>
+                    <a
+                      href={waLink(p.mensagemZap, 'destaques')}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ ...styles.botaoZap, display: 'inline-flex', alignItems: 'center', gap: 8 }}
+                      aria-label={`Falar no WhatsApp sobre ${p.nome}`}
+                    >
+                      <WhatsIcon size={18} /> Falar no WhatsApp
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>
@@ -236,7 +254,9 @@ export default function Home() {
               Cada peça entrega cuidado em forma de tecido.
             </p>
             <Link href="/sobre" legacyBehavior>
-              <a style={{ ...styles.botaoPrimario, marginTop: 16 }} aria-label="Conheça nossa história">Conheça nossa história</a>
+              <a style={{ ...styles.botaoPrimario, marginTop: 16 }} aria-label="Conheça nossa história">
+                Conheça nossa história <ArrowRight size={18} style={{ marginLeft: 8 }} />
+              </a>
             </Link>
           </div>
         </section>
@@ -257,10 +277,20 @@ const styles = {
     borderRadius: 8,
     textDecoration: 'none',
     fontWeight: 700,
+    display: 'inline-flex',
+    alignItems: 'center',
+  },
+  botaoSecundario: {
+    backgroundColor: '#fff',
+    color: Colors.rosa,
+    padding: '10px 20px',
+    borderRadius: 8,
+    border: `2px solid ${Colors.rosa}`,
+    textDecoration: 'none',
+    fontWeight: 700,
     display: 'inline-block',
   },
   botaoZap: {
-    display: 'inline-block',
     backgroundColor: Colors.zap,
     color: '#fff',
     padding: '12px 24px',
@@ -286,4 +316,3 @@ const styles = {
     boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
   },
 };
-```0
