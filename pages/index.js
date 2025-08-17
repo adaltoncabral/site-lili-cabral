@@ -9,7 +9,7 @@ import FloatingButton from '../components/FloatingButton';
 import Analytics from '../components/Analytics';
 import { Montserrat } from 'next/font/google';
 
-// Tipografia (secundária no manual) — simples e leve para web
+// Fonte secundária oficial (manual)
 const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
@@ -33,7 +33,7 @@ const Cores = {
 const waLink = (text, utm = 'home') =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}&utm_source=${utm}&utm_medium=whatsapp&utm_campaign=site`;
 
-// ---- Dados estruturados (fácil manutenção)
+// ---- Dados estruturados (manutenção simples)
 const categorias = [
   { label: 'Pijamas', img: '/cat-pijamas.jpg', alt: 'Categoria Pijamas', href: '/catalogo' },
   { label: 'Lingeries', img: '/cat-lingeries.jpg', alt: 'Categoria Lingeries', href: '/catalogo' },
@@ -47,7 +47,7 @@ const produtos = [
     descricao: 'Conforto e carinho para dormir juntinhos.',
     img: '/Kit_Pijamas_Casal.png',
     alt: 'Kit de pijamas para casal em cores coordenadas',
-    href: '/produtos/kit-pijamas-casal', // rota existente no site publicado
+    href: '/produtos/kit-pijamas-casal', // ajuste se necessário
     mensagemZap: 'Olá! Vi o Kit Pijamas Casal e quero saber mais.',
   },
   {
@@ -55,7 +55,7 @@ const produtos = [
     descricao: 'Delicado e elegante com toque especial.',
     img: '/Conjunto_Renda_Rose.png',
     alt: 'Conjunto de lingerie em renda tom rosé',
-    href: '/catalogo', // ajuste quando a página do produto existir
+    href: '/catalogo', // criar rota do produto quando existir
     mensagemZap: 'Olá! Vi o Conjunto Renda Rosé e quero saber mais.',
   },
 ];
@@ -83,7 +83,7 @@ export default function Home() {
         <meta property="og:image" content={OG_IMAGE} />
         <meta name="twitter:card" content="summary_large_image" />
 
-        {/* JSON-LD Organization + Website (com SearchAction simples via WhatsApp) */}
+        {/* JSON-LD Organization + Website */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -154,7 +154,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Categorias principais */}
+        {/* Categorias */}
         <section aria-labelledby="categorias-title" style={{ padding: '3rem 1rem', background: '#fff' }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <h2 id="categorias-title" style={{ textAlign: 'center', color: Cores.rosa, fontSize: '1.6rem' }}>
@@ -188,7 +188,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Destaques (com link para página do produto quando existir) */}
+        {/* Destaques */}
         <section aria-labelledby="destaques-title" style={{ padding: '3rem 1rem', background: Cores.destaque }}>
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <h2 id="destaques-title" style={{ textAlign: 'center', color: '#fff', fontSize: '1.6rem' }}>
@@ -281,3 +281,4 @@ const estilos = {
     boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
   },
 };
+```0
