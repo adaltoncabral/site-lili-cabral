@@ -1,4 +1,4 @@
-// pages/index.js - Versão Otimizada com fallback de imagens e estilos consistentes
+// pages/index.js
 
 import Head from 'next/head';
 import Image from 'next/image';
@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 import FloatingButton from '../components/FloatingButton';
 import Analytics from '../components/Analytics';
 
-// Fonte institucional (secundária do manual)
+// Fonte institucional
 const montserrat = Montserrat({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
@@ -19,11 +19,11 @@ const montserrat = Montserrat({
   preload: true,
 });
 
-// Configurações de marca e tema
+// Marca / tema
 const BRAND = {
   name: 'Lili Cabral',
   siteUrl: 'https://lilicabral.com.br',
-  ogImage: '/og-image.jpg', // garanta esse arquivo em /public
+  ogImage: '/og-image.jpg', // coloque um 1200x630 em /public
   whatsapp: '5533984142006',
   instagram: 'lili.cabral_',
 };
@@ -35,48 +35,50 @@ const COLORS = {
   destaque: '#FADADD',
   zap: '#25d366',
   cinza: '#555555',
-  branco: '#ffffff',
 };
 
-// UTM de WhatsApp
-const waLink = (text, utm = 'home') =>
+// UTM do WhatsApp
+const wa = (text, utm = 'home') =>
   `https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(text)}&utm_source=${utm}&utm_medium=whatsapp&utm_campaign=site`;
 
-// Dados — ajuste os caminhos conforme seus arquivos em /public
+// HERO (usa arquivo existente)
+const HERO_SRC = '/banners/banner1.webp';
+
+// Categorias — usando ícones existentes até ter fotos reais das categorias
 const CATEGORIAS = [
-  { id: 'pijamas',   label: 'Pijamas',            img: '/categorias/pijamas.jpg',   alt: 'Categoria Pijamas - Conforto para suas noites', href: '/catalogo?categoria=pijamas' },
-  { id: 'lingeries', label: 'Lingeries',          img: '/categorias/lingeries.jpg', alt: 'Categoria Lingeries - Delicadeza e sensualidade', href: '/catalogo?categoria=lingeries' },
-  { id: 'promos',    label: 'Promoções',          img: '/categorias/promocoes.jpg', alt: 'Categoria Promoções - Ofertas especiais',        href: '/catalogo?categoria=promocoes' },
-  { id: 'especiais', label: 'Coleções Especiais', img: '/categorias/especiais.jpg', alt: 'Categoria Coleções Especiais - Edições limitadas', href: '/catalogo?categoria=especiais' },
+  { id: 'pijamas',   label: 'Pijamas',            img: '/icones/icon-pijama.png',    alt: 'Categoria Pijamas - Conforto para suas noites', href: '/catalogo?categoria=pijamas' },
+  { id: 'lingeries', label: 'Lingeries',          img: '/icones/icon-lingerie.png',  alt: 'Categoria Lingeries - Delicadeza e sensualidade', href: '/catalogo?categoria=lingeries' },
+  { id: 'promos',    label: 'Promoções',          img: '/icones/icon-promocao.png',  alt: 'Categoria Promoções - Ofertas especiais', href: '/catalogo?categoria=promocoes' },
+  { id: 'especiais', label: 'Coleções Especiais', img: '/icones/icon-especial.png',  alt: 'Categoria Coleções Especiais - Edições limitadas', href: '/catalogo?categoria=especiais' },
 ];
 
+// Destaques — caminhos reais hoje em /public
 const DESTAQUES = [
-  { id: 'kit-casal', nome: 'Kit Pijamas Casal', descricao: 'Conforto e carinho para dormir juntinhos.', img: '/produtos/kit-pijamas-casal.png', alt: 'Kit de pijamas para casal em cores coordenadas', href: '/produtos/kit-pijamas-casal', preco: 'A partir de R$ 89,90', mensagem: 'Olá! Vi o Kit Pijamas Casal no site e gostaria de saber mais detalhes.' },
-  { id: 'conj-rose', nome: 'Conjunto Renda Rosé', descricao: 'Delicado e elegante com toque especial.', img: '/produtos/conjunto-renda-rose.png', alt: 'Conjunto de lingerie em renda tom rosé', href: '/produtos/conjunto-renda-rose', preco: 'A partir de R$ 69,90', mensagem: 'Olá! Vi o Conjunto Renda Rosé no site e quero conhecer as opções disponíveis.' },
+  { id: 'kit-casal', nome: 'Kit Pijamas Casal', descricao: 'Conforto e carinho para dormir juntinhos.', img: '/Kit_Pijamas_Casal.png', alt: 'Kit de pijamas para casal em cores coordenadas', href: '/produtos/kit-pijamas-casal', preco: 'A partir de R$ 89,90', mensagem: 'Olá! Vi o Kit Pijamas Casal no site e gostaria de saber mais detalhes.' },
+  { id: 'conj-rose', nome: 'Conjunto Renda Rosé', descricao: 'Delicado e elegante com toque especial.', img: '/Conjunto_Renda_Rose.png', alt: 'Conjunto de lingerie em renda tom rosé', href: '/produtos/conjunto-renda-rose', preco: 'A partir de R$ 69,90', mensagem: 'Olá! Vi o Conjunto Renda Rosé no site e quero conhecer as opções disponíveis.' },
 ];
 
-// Ícones SVG inline
+// Ícones SVG inline (sem libs)
 const WhatsAppIcon = (props) => (
   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" {...props}>
     <path fill="currentColor" d="M20.5 3.5A11 11 0 0 0 3.1 18.8L2 22l3.3-1.1A11 11 0 1 0 20.5 3.5ZM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.4.8.8-2.3-.2-.3A8 8 0 1 1 12 20Z" />
     <path fill="currentColor" d="M16.6 14.3c-.2-.1-1.2-.6-1.3-.6s-.3-.1-.4.1l-.6.7c-.1.1-.2.1-.4 0a6.6 6.6 0 0 1-3.2-2.8c-.2-.3 0-.4 0-.5l.3-.4c.1-.2.1-.3 0-.4s-.4-1-.6-1.3-.3-.3-.4-.3h-.3c-.1 0-.4.1-.6.3s-.8.8-.8 2a3.6 3.6 0 0 0 .8 2.1 8.2 8.2 0 0 0 3.1 2.8 3.6 3.6 0 0 0 2.2.7c.9-.1 1.7-.8 1.9-1.3s.2-1.1.1-1.2-.1-.1-.3-.2Z" />
   </svg>
 );
-
 const ArrowRightIcon = (props) => (
   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" {...props}>
     <path fill="currentColor" d="M13.172 12 8.222 7.05 9.636 5.636 16 12l-6.364 6.364-1.414-1.414Z" />
   </svg>
 );
 
-// SmartImage — fallback automático se a imagem falhar
-const SmartImage = ({ src, fallback = '/placeholder.jpg', alt, ...rest }) => {
+// Componente de imagem com fallback
+const SmartImage = ({ src, fallback, alt, ...rest }) => {
   const [imgSrc, setImgSrc] = useState(src);
   return (
     <Image
       src={imgSrc}
       alt={alt}
-      onError={() => setImgSrc(fallback)}
+      onError={() => fallback && setImgSrc(fallback)}
       {...rest}
     />
   );
@@ -88,11 +90,11 @@ const CategoriaCard = memo(({ categoria }) => (
     <div className="categoria-image-container">
       <SmartImage
         src={categoria.img}
-        fallback="/categorias/placeholder.jpg"
+        fallback="/icones/icon-especial.png"
         alt={categoria.alt}
-        width={420}
-        height={320}
-        sizes="(max-width: 768px) 50vw, 240px"
+        width={220}
+        height={160}
+        sizes="(max-width: 768px) 40vw, 220px"
         className="categoria-image"
         loading="lazy"
       />
@@ -130,7 +132,7 @@ const ProdutoCard = memo(({ produto }) => {
         {produto.preco && <p className="produto-preco">{produto.preco}</p>}
 
         <a
-          href={waLink(produto.mensagem, 'destaques')}
+          href={wa(produto.mensagem, 'destaques')}
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-whatsapp"
@@ -145,7 +147,6 @@ const ProdutoCard = memo(({ produto }) => {
 });
 ProdutoCard.displayName = 'ProdutoCard';
 
-// Página
 export default function Home() {
   const [bannerLoading, setBannerLoading] = useState(true);
   const onBannerLoad = useCallback(() => setBannerLoading(false), []);
@@ -158,7 +159,7 @@ export default function Home() {
         '@id': `${BRAND.siteUrl}#org`,
         name: BRAND.name,
         url: BRAND.siteUrl,
-        logo: `${BRAND.siteUrl}/logo.png`,
+        logo: `${BRAND.siteUrl}/logo-lili-cabral.png`,
         sameAs: [`https://www.instagram.com/${BRAND.instagram}/`],
         contactPoint: {
           '@type': 'ContactPoint',
@@ -186,7 +187,10 @@ export default function Home() {
     <>
       <Head>
         <title>{BRAND.name} – Pijamas e Lingeries de Qualidade</title>
-        <meta name="description" content="Pijamas, lingeries e kits presenteáveis com conforto e estilo. Compre pelo WhatsApp com entrega em todo Brasil." />
+        <meta
+          name="description"
+          content="Pijamas, lingeries e kits presenteáveis com conforto e estilo. Compre pelo WhatsApp com entrega em todo Brasil."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href={BRAND.siteUrl} />
 
@@ -196,10 +200,12 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={BRAND.siteUrl} />
         <meta property="og:image" content={`${BRAND.siteUrl}${BRAND.ogImage}`} />
+        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:site_name" content={BRAND.name} />
         <meta name="twitter:card" content="summary_large_image" />
 
         {/* Preload do LCP */}
-        <link rel="preload" href="/banner-home.jpg" as="image" />
+        <link rel="preload" href={HERO_SRC} as="image" />
 
         {/* JSON-LD */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -215,7 +221,7 @@ export default function Home() {
             <div className="hero-img-wrap">
               {bannerLoading && <div className="img-skeleton" aria-hidden="true" />}
               <Image
-                src="/banner-home.jpg"
+                src={HERO_SRC}
                 alt="Banner principal da Lili Cabral com pijamas e lingeries"
                 width={1600}
                 height={600}
@@ -228,7 +234,8 @@ export default function Home() {
 
             <h1 id="hero-title" className="hero-title">Conforto, delicadeza e autoestima para seu descanso</h1>
             <p className="hero-desc">
-              Pijamas, lingeries e kits presenteáveis pensados para transformar sua rotina em um momento especial de autocuidado.
+              Pijamas, lingeries e kits presenteáveis pensados para transformar sua rotina em um momento especial de
+              autocuidado.
             </p>
 
             <div className="cta">
@@ -236,7 +243,7 @@ export default function Home() {
                 Ver Catálogo <ArrowRightIcon className="icon" />
               </Link>
               <a
-                href={waLink('Olá! Quero ver as novidades da Lili Cabral.', 'banner')}
+                href={wa('Olá! Quero ver as novidades da Lili Cabral.', 'banner')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-whatsapp"
@@ -308,7 +315,7 @@ export default function Home() {
 
         .cta{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
         .btn{ display:inline-flex; align-items:center; gap:.5rem; padding:12px 24px; border-radius:8px; text-decoration:none; font-weight:700; border:2px solid transparent; transition:all .2s ease; }
-        .btn:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,0,0,.15); }
+        .btn:hover{ transform:translateY(-1px); box-shadow:0 4px 12px rgba(0, 0, 0, .15); }
         .btn-primary{ background:${COLORS.rosa}; color:#fff; }
         .btn-primary:hover{ background:#c17a90; }
         .btn-whatsapp{ background:${COLORS.zap}; color:#fff; }
@@ -324,7 +331,7 @@ export default function Home() {
         .section-title{ color:${COLORS.rosa}; font-size:clamp(1.4rem,3vw,1.8rem); font-weight:700; margin-bottom:.5rem; }
         .section-sub{ color:${COLORS.cinza}; font-size:1.05rem; }
 
-        .grid-cats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; }
+        .grid-cats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:2rem; }
         .categoria-card{ display:block; text-decoration:none; color:${COLORS.rosa}; font-weight:700; text-align:center; transition:transform .2s ease; }
         .categoria-card:hover{ transform:translateY(-4px); }
         .categoria-image{ width:100%; height:auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,.08); margin-bottom:1rem; }
